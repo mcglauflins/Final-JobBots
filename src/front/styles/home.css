@@ -1,7 +1,12 @@
-/*
-    home.css: This website contains selectors only used in home.css
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+html,
+body {
+  height: 100%;
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+  background-image: linear-gradient(to right, rgb(28, 170, 226), white);
+}
