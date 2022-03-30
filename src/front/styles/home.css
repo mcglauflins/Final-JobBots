@@ -7,6 +7,8 @@
 html,
 body {
   height: 100%;
-
-  background-image: linear-gradient(to right, rgb(28, 170, 226), white);
+  background-image: linear-gradient(90deg, #0f6ad1 50%, #fff 50%);
+}
+#navbar {
+    background-image: linear-gradient(90deg, #0f6ad1 50%, #fff 50%);
 }
