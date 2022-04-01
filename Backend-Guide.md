@@ -30,7 +30,8 @@ import time
 <br/>
 <br/>
 <br/>
-```python
+
+```py
 ### Headless config start
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--window-size=1920,1080")
@@ -46,18 +47,19 @@ driver = webdriver.Remote(
 )
 ### Headless config end
 ```
-- ```chrome_options``` is initialize and allows us to configure the chrome driver.
+
+- `chrome_options` is initialize and allows us to configure the chrome driver.
 - The first two arguments being added prevent an issue where selenium is not able to find an element. This can happen randomly and it happens when there is not a set size for the screen in headless  mode.
 - The fix section solves an issue with docker; mainly gitpod where the headless browser would ran out of memory and crash. <a href="#fix"> [Better explained in its own section down below.] </a>
-- ```chrome_options.headless = True``` allows us to webscrap with chrome without the needing the browser UI.
-- Finally, we use the remote driver thru the selenium grid. In this case the remote url for the driver would be assigned ```command_executor``` attribbute.
+- `chrome_options.headless = True` allows us to webscrap with chrome without the needing the browser UI.
+- Finally, we use the remote driver thru the selenium grid. In this case the remote url for the driver would be assigned `command_executor` attribbute.
 <br/>
 <br/>
-<br/>
-```python
+
+```py
 driver.get('https://www.glassdoor.com/index.htm')
 
-# print(driver.title)
+#print(driver.title)
 
 time.sleep(1)
 signin = driver.find_element(By.XPATH, "//*[@id='SiteNav']/nav/div[2]/div/div/div/button")
@@ -68,11 +70,14 @@ time.sleep(1.5)
 user_email_inpt = driver.find_element(By.ID, 'modalUserEmail')
 user_email_inpt.send_keys('testtestjobbot@gmail.com')
 ```
-- ``` driver.get() ``` is used to fetch and parse the html of any url we want.
-- We use ```driver.find_element(By.<something>, "<identifier>")``` to find an element from the page the driver is "getting."
-- Ultimately, we use ```time.sleep(n)``` to pause the execution of the code for n amount of seconds. Regardless wether that's necessary or not; I have no clue as of now.
 
-For more info about selenium <a href = "https://selenium-python.readthedocs.io/locating-elements.html"> visit the documentation. </a> In this project, always use the ```driver.find_element(By.<some attr>, 'something')``` INSTEAD OF: 
+
+- ` driver.get() ` is used to fetch and parse the html of any url we want.
+- We use `driver.find_element(By.<something>, "<identifier>")` to find an element from the page the driver is "getting."
+- Ultimately, we use `time.sleep(n)` to pause the execution of the code for n amount of seconds. Regardless wether that's necessary or not; I have no clue as of now.
+
+For more info about selenium <a href = "https://selenium-python.readthedocs.io/locating-elements.html"> visit the documentation. </a> In this project, always use the `driver.find_element(By.<some attr>, 'something')` INSTEAD OF: 
+
 ```python
 find_element_by_name
 find_element_by_xpath
