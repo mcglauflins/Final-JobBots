@@ -6,8 +6,15 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.headless = True
 driver =  webdriver.Chrome(options=chrome_options)
 
-driver.get('https://www.selenium.dev/')
+driver.get('https://www.techwithtim.net/')
 
-p = driver.find_element(By.ID,'td-cover-block-0').text
+link = driver.find_element_by_link_text("python programming")
+link.click()
 
-print(p)
+try:
+    element = WebDriverWait(driver,10).until(
+        EC.presence_of_element_located((By.LINK_TEXT,"Begginer Python Tutorials"))
+    )
+    element.click()
+    except:
+        driver.quit()
