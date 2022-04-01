@@ -10,9 +10,19 @@ body {
   background-image: linear-gradient(90deg, #0f6ad1 50%, #fff 50%);
 }
 #navbar {
-    background-image: linear-gradient(90deg, #0f6ad1 50%, #fff 50%);
+  background-image: linear-gradient(90deg, #0f6ad1 50%, #fff 50%);
 }
-.container{
- 
+.container {
   margin-left: 0px;
+  padding-right: 0px;
+  width: 100%;
+}
+.btn-primary {
+  font-size: 75px;
+  color: #0d6efd;
+  background-color: #fff;
+  border-color: #fff;
+}
+.ml-auto {
+  align-self: flex-end;
 }
