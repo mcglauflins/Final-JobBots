@@ -22,31 +22,35 @@ driver = webdriver.Remote(
 ### To make the browser visible. 1. Uncomment the line below. 2. Comment out the headless config block above.
 # driver = webdriver.Chrome('chrome_driver\chromedriver.exe')
 
-driver.get('https://www.glassdoor.com/index.htm')
+driver.get('https://www.cybercoders.com/?logo=1')
 
-# print(driver.title)
+userJobInpt = input("Job title you are looking for: ")
+userJobLocation = input("City, State or ZIP: ")
 
+jobTitleArea = driver.find_element(By.CLASS_NAME, "jobtitle-autocomplete")
+locationArea = driver.find_element(By.CLASS_NAME, "location-autocomplete")
+
+jobTitleArea.click()
 time.sleep(1)
-signin = driver.find_element(By.XPATH, "//*[@id='SiteNav']/nav/div[2]/div/div/div/button")
-signin.click()
 
-time.sleep(1.5)
+jobTitleArea.send_keys(userJobInpt)
+time.sleep(.9)
 
-user_email_inpt = driver.find_element(By.ID, 'modalUserEmail')
-user_email_inpt.send_keys('testtestjobbot@gmail.com')
+locationArea.click()
+time.sleep(1.2)
+locationArea.send_keys(userJobLocation)
 
 time.sleep(.5)
-user_password_inpt = driver.find_element(By.ID, 'modalUserPassword')
-user_password_inpt.send_keys('Test@1345#1')
+locationArea.send_keys(Keys.ENTER)
 
 time.sleep(1)
-signin = driver.find_element(By.XPATH, "//*[@id='LoginModal']/div/div/div[2]/div[2]/div[2]/div/div/form/div[3]/button/span")
-signin.click()
+availableJobs = driver.find_elements(By.CLASS_NAME, "job-title")
+skillList = driver.find_elements(By.CLASS_NAME, "skill-list")
+applyBtn = driver.find_elements(By.CLASS_NAME, "apply-button")
 
-time.sleep(1.5)
-print(driver.find_element(By.CSS_SELECTOR, 'h3.css-17vthrg.e11rhuha1').text)
-
-
+for i in range(len(availableJobs)):
+    cprint("Job Title: " + availableJobs[i].text, 'red', attrs=['bold'])
+    cprint("Job Skills: " + skillList[i].text + "\n\n======================", 'yellow')
 
 
 ######### Selenium Site Scrap Example 1
