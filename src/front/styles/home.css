@@ -10,23 +10,43 @@ body {
   background-image: linear-gradient(90deg, #0f6ad1 50%, #fff 50%);
 }
 #navbar {
-    background-image: linear-gradient(90deg, #0f6ad1 50%, #fff 50%);
+  background-image: linear-gradient(90deg, #0f6ad1 50%, #fff 50%);
 }
-#h1 {
-  position: absolute;
-  top: 500px;
-  right: 250px;
-  width: 500px;
-  height: 100px;
-  color: #0f6ad1;
-  font-size:70px;
-}
-#h3 {
-  position: absolute;
-  top: 440px;
-  right: 450px;
-  width: 500px;
-  height: 100px;
+.header1 {
   color: #084080;
-  font-size:50px;
+  font-size: 3.125rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
 }
+.header2 {
+  color: #0f6ad1;
+  font-size: 4.375rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+}
+.btn1 {
+  background-color: #0f6ad1;
+  border: 0.313rem;
+  border-color: #0e5ab1;
+  width: 14rem;
+  font-size: 3rem;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+}
+.btn1:hover {
+  box-shadow: 0.313rem 0.313rem 0.688rem rgba(33, 33, 33, 0.2);
+}
+.rowHead {
+  height: 20rem;
+}
+.rowHead1 {
+  height: 13rem;
+}
+.colHead {
+ text-align: center;
+}
+.colHead1 {
+  text-align: right;
+ }
+ 
