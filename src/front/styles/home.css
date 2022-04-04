@@ -37,16 +37,21 @@ body {
 .btn1:hover {
   box-shadow: 0.313rem 0.313rem 0.688rem rgba(33, 33, 33, 0.2);
 }
-.rowHead {
-  height: 20rem;
-}
 .rowHead1 {
-  height: 13rem;
+  height: 10rem;
 }
 .colHead {
+  padding-top:5rem;
  text-align: center;
+ 
 }
 .colHead1 {
   text-align: right;
  }
+ .welcome img {
+  width: 100%;
+  height: auto;
+  
+ }
+
  

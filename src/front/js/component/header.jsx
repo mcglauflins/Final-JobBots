@@ -2,22 +2,29 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Stack from "react-bootstrap/Stack";
+import robotLogo from "/workspace/Final-JobBots/src/front/img/Robot.png";
+import welcomes from "/workspace/Final-JobBots/src/front/img/bot-dialogue.png";
 
 export const Header = () => {
   return (
     <Container className="container">
-      <Row className="rowHead">
-        <Col>One column</Col>
+      <Row>
+        <Col></Col>
+        <Col className="welcome">
+          <img src={welcomes}></img>
+        </Col>
+        <Col></Col>
       </Row>
       <Row>
-        <Col>One of two columns</Col>
+        <Col className="robot">
+          <img src={robotLogo}></img>
+        </Col>
         <Col className="colHead">
           <h3 className="header1">Job Applications</h3>
         </Col>
       </Row>
-      <Row className="rowHead1">
-        <Col>One of two columns</Col>
+      <Row className="rowHead">
+        <Col></Col>
         <Col className="colHead1">
           <h1 className="header2">Simplified</h1>
         </Col>
