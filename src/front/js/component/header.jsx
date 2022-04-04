@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,19 +6,21 @@ import robotLogo from "/workspace/Final-JobBots/src/front/img/Robot.png";
 import welcomes from "/workspace/Final-JobBots/src/front/img/bot-dialogue.png";
 
 export const Header = () => {
+  const styles = {
+    backgroundImage: `url(${robotLogo})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "bottom left",
+    minHeight: "69vh"
+  };
   return (
-    <Container className="container">
-      <Row>
-        <Col></Col>
-        <Col className="welcome">
+    <Container style={styles}>
+      <Row className="row flex flex-row justify-content-center">
+        <Col className="welcome col-sm-4">
           <img src={welcomes}></img>
         </Col>
-        <Col></Col>
       </Row>
       <Row>
-        <Col className="robot">
-          <img src={robotLogo}></img>
-        </Col>
+        <Col></Col>
         <Col className="colHead">
           <h3 className="header1">Job Applications</h3>
         </Col>
