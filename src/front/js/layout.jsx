@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop.jsx";
 
 import injectContext from "./store/appContext";
@@ -21,11 +21,17 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           <Navbar />
-          <Route>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/demo" element={<Demo />} />
-            <Route element={<h1>Not found!</h1>} />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/demo">
+              <Demo />
+            </Route>
+            <Route>
+              <h1>Not found!</h1>
+            </Route>
+          </Switch>
           <Footer />
         </ScrollToTop>
       </BrowserRouter>
