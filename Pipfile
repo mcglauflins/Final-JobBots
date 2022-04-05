@@ -17,6 +17,7 @@ flask-cors = "*"
 gunicorn = "*"
 cloudinary = "*"
 flask-admin = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.8"

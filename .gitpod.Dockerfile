@@ -55,3 +55,6 @@ RUN sudo apt-get update && \
 
 ENV CHROME_BIN=/usr/bin/chromium-browser
 ENV BROWSER="Chrome_Without_Sandbox"
+
+WORKDIR /workspace/Final-JobBots/seleniumGrid
+RUN docker-compose up --build
