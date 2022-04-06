@@ -13,7 +13,7 @@ body {
 }
 .container {
   margin-left: 0rem;
-  padding-right: 0px;
+  padding-right: 3rem;
   max-width: 100%;
 }
 .btn-primary {
@@ -22,4 +22,20 @@ body {
   background-color: #fff;
   border-color: #fff;
 }
-
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1rem;
+  clear: both;
+  font-weight: 400;
+  color: #f8f9fa;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+.dropdown-menu.show {
+  display: block;
+  background-color: #0d6efd;
+}

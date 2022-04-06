@@ -25,17 +25,22 @@ export const Navbar = () => {
               >
                 <li>
                   <a className="dropdown-item" href="#">
-                    Action
+                    About
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    Another action
+                    How it works
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    Something else here
+                    Download
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    FAQ
                   </a>
                 </li>
               </ul>
@@ -56,17 +61,17 @@ export const Navbar = () => {
               >
                 <li>
                   <a className="dropdown-item" href="#">
-                    Action
+                    Login
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    Another action
+                    Sign Up
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    Something else here
+                    Dashboard
                   </a>
                 </li>
               </ul>
