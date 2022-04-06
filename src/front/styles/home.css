@@ -39,3 +39,7 @@ body {
   display: block;
   background-color: #0d6efd;
 }
+
+.dropdown-menu[data-bs-popper] {
+    right: 0 !important;
+}
