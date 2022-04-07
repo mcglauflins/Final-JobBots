@@ -42,4 +42,5 @@ body {
 
 .dropdown-menu[data-bs-popper] {
     right: 0 !important;
+    left: unset !important;
 }
