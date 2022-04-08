@@ -17,12 +17,15 @@ body {
   max-width: 100%;
 }
 .btn-primary {
-  font-size: 2rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
   color: #0d6efd;
   background-color: #fff;
   border-color: #fff;
+
 }
 .dropdown-item {
+  border-radius: 25px;
   display: block;
   width: 100%;
   padding: 0.25rem 1rem;
@@ -38,4 +41,16 @@ body {
 .dropdown-menu.show {
   display: block;
   background-color: #0d6efd;
+}
+.dropdown-menu[data-bs-popper] {
+  top: 100%;
+  right: 0 !important;
+  left: unset !important;
+  margin-top: 0.125rem;
+}
+.icons-right{
+  display:flex;
+}
+.hamburger{
+  padding-right: .30rem;
 }
