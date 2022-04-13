@@ -1,0 +1,55 @@
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+html,
+body {
+  height: 100%;
+  background-image: linear-gradient(90deg, #1150cb 50%, #fff 50%);
+}
+#navbar {
+  background-image: linear-gradient(90deg, #1150cb 50%, #fff 50%);
+}
+.firstWordTitle h3 {
+  color: #084080;
+  font-size: 3.125rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+}
+.secondWordTitle h1 {
+  color: #1150cb;
+  font-size: 4.375rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+}
+.btn1 {
+  background-color: #1150cb;
+  border: 0.313rem;
+  border-color: rgb(15, 78, 150);
+  width: 14rem;
+  font-size: 3rem;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  margin-top: 3rem;
+}
+.btn1:hover {
+  box-shadow: 0.313rem 0.313rem 0.688rem rgba(33, 33, 33, 0.2);
+}
+.firstWordTitle {
+  padding-top: 5rem;
+  text-align: center;
+}
+.secondWordTitle {
+  text-align: right;
+}
+.welcome img {
+  width: 100%;
+  height: auto;
+  padding-right: 1.45rem;
+}
+.buttonColumn {
+  text-align: center;
+}
