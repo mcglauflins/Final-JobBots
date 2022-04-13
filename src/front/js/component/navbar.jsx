@@ -1,16 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import logo from "/workspace/Final-JobBots/src/front/img/logo.png";
+import logo from "../../img/logo.png";
+import {LoginModal} from "./loginModal.jsx";
 
 export const Navbar = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  }
   return (
-    <nav className="navbar navbar-light bg-light expand-lg" id="navbar">
-      <div className="container">
-        <img src={logo} />
-        <div className="ml-auto">
-          <div className="icons-right">
-            <div className="hamburger">
-              <Link to="/demo">
+    <React.Fragment>
+      <LoginModal show={showModal} onHide={handleShowModal} />
+      <nav className="navbar navbar-light bg-light expand-lg" id="navbar">
+        <div className="container">
+          <img src={logo} />
+          <div className="ml-auto">
+            <div className="icons-right">
+              <div className="hamburger">
+                {/* <Link to="/demo"> */}
                 <button
                   className="btn btn-primary"
                   type="button"
@@ -45,10 +52,10 @@ export const Navbar = () => {
                     </a>
                   </li>
                 </ul>
-              </Link>
-            </div>
-            <div className="profile">
-              <Link to="/demo">
+                {/* </Link> */}
+              </div>
+              <div className="profile">
+                {/* <Link to="/demo"> */}
                 <button
                   className="btn btn-primary"
                   type="button"
@@ -62,12 +69,12 @@ export const Navbar = () => {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton1"
                 >
-                  <li>
+                  <li onClick={handleShowModal}>
                     <a className="dropdown-item" href="#">
                       Login
                     </a>
                   </li>
-                  <li>
+                  <li onClick={handleShowModal}>
                     <a className="dropdown-item" href="#">
                       Sign Up
                     </a>
@@ -78,11 +85,12 @@ export const Navbar = () => {
                     </a>
                   </li>
                 </ul>
-              </Link>
+                {/* </Link> */}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </React.Fragment>
   );
 };

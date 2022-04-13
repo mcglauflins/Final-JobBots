@@ -3,8 +3,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
-function MydModalWithGrid(props) {
+export function LoginModal(props) {
     return (
       <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
         <Modal.Header closeButton>
@@ -42,19 +43,3 @@ function MydModalWithGrid(props) {
       </Modal>
     );
   }
-  
-  function App() {
-    const [modalShow, setModalShow] = useState(false);
-  
-    return (
-      <>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
-          Launch modal with grid
-        </Button>
-  
-        <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
-      </>
-    );
-  }
-  
-  render(<App />);
