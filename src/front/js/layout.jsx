@@ -9,7 +9,8 @@ import { Demo } from "./views/demo.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
-// import {Welcome} from "./views/Welcome.jsx";
+// import {Modal} from "./component/loginModal.jsx";
+import {Welcome} from "./views/Welcome.jsx";
 import {Profile} from "./views/Profile.jsx";
 //create your first component
 const Layout = () => {
@@ -24,7 +25,7 @@ const Layout = () => {
           <Navbar />
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Welcome />
             </Route>
             <Route exact path="/demo">
               <Demo />
@@ -33,7 +34,6 @@ const Layout = () => {
               <h1>Not found!</h1>
             </Route>
           </Switch>
-          <Profile />
           <Footer />
         </ScrollToTop>
       </BrowserRouter>
