@@ -16,26 +16,26 @@ export const Welcome = () => {
   return (
     <Container style={styles}>
       <Row className="row flex flex-row justify-content-center">
-        <Col className="welcome col-sm-4">
+        <Col xs={6} md={4} className="welcome col-sm-4">
           <img src={welcomes}></img>
         </Col>
       </Row>
       <Row>
-        <Col></Col>
-        <Col className="firstWordTitle">
+        <Col xs={6} md={4}></Col>
+        <Col xs={6} md={4} className="firstWordTitle">
           <h3>Job Applications</h3>
         </Col>
       </Row>
       <Row>
-        <Col></Col>
+        <Col xs={6} md={4}></Col>
         <Col className="secondWordTitle">
           <h1>Simplified</h1>
         </Col>
       </Row>
       <Row>
-        <Col></Col>
-        <Col></Col>
-        <Col className="buttonColumn">
+        <Col xs={6} md={4}></Col>
+        <Col xs={6} md={4}></Col>
+        <Col xs={6} md={4} className="buttonColumn">
           <button className="btn1">Start Here!</button>
         </Col>
       </Row>
