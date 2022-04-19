@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export const Profile = () => {
+const Profile = () => {
   return (
     <Container>
       <Row className="row flex flex-row justify-content-center">
@@ -11,20 +11,19 @@ export const Profile = () => {
       </Row>
       <Row>
         <Col></Col>
-        <Col>
-        </Col>
-      </Row>
-      <Row >
         <Col></Col>
-        <Col>
-        </Col>
       </Row>
       <Row>
         <Col></Col>
         <Col></Col>
-        <Col>
-        </Col>
+      </Row>
+      <Row>
+        <Col></Col>
+        <Col></Col>
+        <Col></Col>
       </Row>
     </Container>
   );
 };
+
+export default Profile;
