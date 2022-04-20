@@ -50,3 +50,7 @@
 .hamburger{
   padding-right: .30rem;
 }
+.landingPage {
+  background: transparent;
+  border: none;
+}

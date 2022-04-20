@@ -13,7 +13,9 @@ export const Navbar = () => {
       <LoginModal show={showModal} onHide={handleShowModal} />
       <nav className="navbar navbar-light bg-light expand-lg" id="navbar">
         <div className="container">
-          <img src={logo} />
+          <Link>
+          <button className="landingPage"><img src={logo} /></button>
+          </Link>
           <div className="ml-auto">
             <div className="icons-right">
               <div className="hamburger">
