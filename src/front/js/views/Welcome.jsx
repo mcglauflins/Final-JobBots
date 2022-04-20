@@ -22,11 +22,13 @@ export const Welcome = () => {
       </Row>
       <Row>
         <Col xs={6} md={4}></Col>
+        <Col xs={6} md={4}></Col>
         <Col xs={6} md={4} className="firstWordTitle">
           <h3>Job Applications</h3>
         </Col>
       </Row>
       <Row>
+        <Col xs={6} md={4}></Col>
         <Col xs={6} md={4}></Col>
         <Col className="secondWordTitle">
           <h1>Simplified</h1>

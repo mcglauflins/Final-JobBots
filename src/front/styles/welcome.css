@@ -14,13 +14,13 @@ body {
 }
 .firstWordTitle h3 {
   color: #084080;
-  font-size: 3.125rem;
+  font-size: 4rem;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
 }
 .secondWordTitle h1 {
   color: #1150cb;
-  font-size: 4.375rem;
+  font-size: 6rem;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
 }
@@ -28,8 +28,8 @@ body {
   background-color: #1150cb;
   border: 0.313rem;
   border-color: rgb(15, 78, 150);
-  width: 14rem;
-  font-size: 3rem;
+  width: 16rem;
+  font-size: 3.5rem;
   color: #fff;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
@@ -40,16 +40,17 @@ body {
 }
 .firstWordTitle {
   padding-top: 5rem;
-  text-align: center;
+  text-align: left;
 }
 .secondWordTitle {
-  text-align: right;
+  text-align: center;
 }
 .welcome img {
-  width: 100%;
+  width: 101%;
   height: auto;
-  padding-right: 1.45rem;
+  align-items: center;
+  object-fit: scale-down;
 }
 .buttonColumn {
-  text-align: center;
+  padding-left: 7rem;
 }
