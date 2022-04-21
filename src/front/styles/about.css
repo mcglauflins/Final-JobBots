@@ -1,0 +1,11 @@
+.header{
+   text-align: center;
+   color: #47d4d4;
+    
+}
+.about{
+    background-color: aliceblue;
+    border:.25em;
+    border-color: #47d4d4;
+    border-style:solid;
+}

@@ -1,19 +1,24 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
-import {LoginModal} from "./loginModal.jsx";
+import { LoginModal } from "./loginModal.jsx";
+import "../../styles/navbar.css";
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
-  }
+  };
   return (
     <React.Fragment>
       <LoginModal show={showModal} onHide={handleShowModal} />
       <nav className="navbar navbar-light bg-light expand-lg" id="navbar">
         <div className="container">
-          <img src={logo} />
+          <Link to="/">
+            <button className="landingPage">
+              <img src={logo} />
+            </button>
+          </Link>
           <div className="ml-auto">
             <div className="icons-right">
               <div className="hamburger">

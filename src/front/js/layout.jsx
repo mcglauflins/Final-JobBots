@@ -4,14 +4,15 @@ import ScrollToTop from "./component/scrollToTop.jsx";
 
 import injectContext from "./store/appContext";
 
-import { Home } from "./views/home.jsx";
-import { Demo } from "./views/demo.jsx";
+
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
 // import {Modal} from "./component/loginModal.jsx";
 import {Welcome} from "./views/Welcome.jsx";
-import {Profile} from "./views/Profile.jsx";
+import Profile from "./views/Profile.jsx";
+import Faqs from "./views/Faq.jsx";
+import About from "./views/About.jsx";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -27,13 +28,13 @@ const Layout = () => {
             <Route exact path="/">
               <Welcome />
             </Route>
-            <Route exact path="/">
+            <Route  path="/Profile">
               <Profile />
             </Route>
-            <Route exact path="/">
+            <Route  path="/About">
               <About />
             </Route>
-            <Route exact path="/">
+            <Route  path="/Faqs">
               <Faqs />
             </Route>
             <Route>

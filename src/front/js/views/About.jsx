@@ -2,11 +2,13 @@ import React from "react";
 import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "../../styles/about.css";
 
 function About() {
   return (
     <div>
-      <Container fluid="md">
+      <h1 className="header">About</h1>
+      <Container className="about" fluid="md">
         <Row>
           <Col>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel
