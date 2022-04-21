@@ -9,13 +9,11 @@ export const Navbar = () => {
     setShowModal(!showModal);
   }
   return (
-    <React.Fragment>
+    <React.Fragment  xs={6} md={4}>
       <LoginModal show={showModal} onHide={handleShowModal} />
       <nav className="navbar navbar-light bg-light expand-lg" id="navbar">
         <div className="container">
-          <Link>
-          <button className="landingPage"><img src={logo} /></button>
-          </Link>
+          <img src={logo} />
           <div className="ml-auto">
             <div className="icons-right">
               <div className="hamburger">

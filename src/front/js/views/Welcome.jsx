@@ -2,19 +2,22 @@ import React, { Fragment } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import robotLogo from "../../img/Robot.png";
+import robotLogo from "../../img/Robo.png";
 import welcomes from "../../img/bot-dialogue.png";
 import "../../styles/welcome.css";
+import {useState, useRef} from "react";
 
 export const Welcome = () => {
-  const styles = {
+  const [style, setStyle] = useState({
     backgroundImage: `url(${robotLogo})`,
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "bottom left",
-    minHeight: "69vh",
-  };
+    backgroundPosition: "16% 100%",
+    minHeight: "71vh",
+    backgroundSize: "32%"
+  })
+
   return (
-    <Container style={styles}>
+    <Container xs={6} md={4} style={style}>
       <Row className="row flex flex-row justify-content-center">
         <Col xs={6} md={4} className="welcome col-sm-4">
           <img src={welcomes}></img>
