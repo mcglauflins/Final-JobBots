@@ -1,15 +1,15 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
-import {LoginModal} from "./loginModal.jsx";
+import { LoginModal } from "./loginModal.jsx";
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
-  }
+  };
   return (
-    <React.Fragment  xs={6} md={4}>
+    <React.Fragment xs={6} md={4}>
       <LoginModal show={showModal} onHide={handleShowModal} />
       <nav className="navbar navbar-light bg-light expand-lg" id="navbar">
         <div className="container">
@@ -80,9 +80,9 @@ export const Navbar = () => {
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link to="/profile" className="dropdown-item">
                       Dashboard
-                    </a>
+                    </Link>
                   </li>
                 </ul>
                 {/* </Link> */}

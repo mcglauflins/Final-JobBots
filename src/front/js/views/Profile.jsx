@@ -7,7 +7,7 @@ export const Profile = () => {
   return (
     <Container>
       <Row className="row flex flex-row justify-content-center">
-        <Col></Col>
+        <Col>This is a profile</Col>
       </Row>
       <Row>
         <Col></Col>
