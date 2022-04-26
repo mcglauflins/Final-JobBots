@@ -11,7 +11,7 @@ export const Navbar = () => {
   return (
     <React.Fragment xs={6} md={4}>
       <LoginModal show={showModal} onHide={handleShowModal} />
-      <nav className="navbar navbar-light bg-light expand-lg" id="navbar">
+      <nav className="navbar navbar-light bg-light expand-lg">
         <div className="container">
           <img src={logo} />
           <div className="ml-auto">
@@ -80,7 +80,7 @@ export const Navbar = () => {
                     </a>
                   </li>
                   <li>
-                    <Link to="/profile" className="dropdown-item">
+                    <Link to="/dashboard" className="dropdown-item">
                       Dashboard
                     </Link>
                   </li>

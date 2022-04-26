@@ -7,30 +7,40 @@
 html,
 body {
   height: 100%;
-  background-image: linear-gradient(90deg, #1150cb 50%, #fff 50%);
+  background-image: linear-gradient(160deg, #0093E9 0%, #00ECD2 100%);
 }
 .firstWordTitle h3 {
   color: #084080;
-  font-size: 4rem;
+  font-size: 6rem;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
+  text-align: left;
 }
 .secondWordTitle h1 {
   color: #1150cb;
-  font-size: 6rem;
+  font-size: 8rem;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
+  text-align: right;
+}
+.container {
+  padding-top: 1rem;
+  padding-bottom: 1.3rem;
+}
+.rowButton {
+  padding-top: 2rem;
 }
 .btn1 {
   background-color: #1150cb;
   border: 0.313rem;
   border-color: rgb(15, 78, 150);
-  width: 16rem;
-  font-size: 3.5rem;
+  width: 20rem;
+  font-size: 5rem;
   color: #fff;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
-  margin-top: 3rem;
+  align-items: center;
+  
 }
 .btn1:hover {
   box-shadow: 0.313rem 0.313rem 0.688rem rgba(33, 33, 33, 0.2);
@@ -42,39 +52,30 @@ body {
 .secondWordTitle {
   text-align: center;
 }
-.welcome img {
-  width: 101%;
-  height: auto;
-  align-items: center;
-  object-fit: scale-down;
-}
-.welcome {
-  display: block;
-}
 .buttonColumn {
   padding-left: 7rem;
 }
 @media screen and (max-width: 768px) {
-  body {
-    background-image:unset;
-    background: #1150cb;
-  }
   .welcome {
     display: none;
   }
   h1 {
     color: #fff !important;
+    position: relative;
+    left: -1rem;
+    font-size: 4.5rem !important;
   }
   h3{
-    color: #47d4d4 !important;
+    color: #334083 !important;
+    font-size: 3.5rem !important;
   } 
   .btn1 {
-    color: #334083;
-    background-color: #47d4d4;
+    color: #fff;
+    background-color: #334083 ;
     width: 13rem;
     font-size:2.5rem;
     position: relative;
-    left: 3rem;
+    left: -1rem;
     bottom: 2rem;
 
   }
