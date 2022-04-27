@@ -9,8 +9,10 @@ import { Demo } from "./views/demo.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
-// import {Welcome} from "./views/Welcome.jsx";
-import {Profile} from "./views/Profile.jsx";
+// import {Modal} from "./component/loginModal.jsx";
+import {Welcome} from "./views/Welcome.jsx";
+import Profile from "./views/Profile.jsx";
+
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -24,16 +26,18 @@ const Layout = () => {
           <Navbar />
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Welcome />
             </Route>
             <Route exact path="/demo">
               <Demo />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
             </Route>
             <Route>
               <h1>Not found!</h1>
             </Route>
           </Switch>
-          <Profile />
           <Footer />
         </ScrollToTop>
       </BrowserRouter>
