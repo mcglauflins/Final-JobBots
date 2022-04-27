@@ -11,7 +11,7 @@ import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
 // import {Modal} from "./component/loginModal.jsx";
 import {Welcome} from "./views/Welcome.jsx";
-import {Dashboard} from "./views/dashboard.jsx";
+import Profile from "./views/Profile.jsx";
 
 //create your first component
 const Layout = () => {
@@ -31,8 +31,8 @@ const Layout = () => {
             <Route exact path="/demo">
               <Demo />
             </Route>
-            <Route exact path="/dashboard">
-              <Dashboard />
+            <Route exact path="/profile">
+              <Profile />
             </Route>
             <Route>
               <h1>Not found!</h1>
