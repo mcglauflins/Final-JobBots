@@ -11,7 +11,7 @@ export function LoginModal(props) {
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Using Grid in Modal
+          Let's Get To Job-Hunting!
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
@@ -21,13 +21,11 @@ export function LoginModal(props) {
               <>
                 <Form.Group className="mb-3">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control placeholder="Disabled input" disabled />
+                  <Form.Control placeholder="" enabled />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
-                  <Form.Select disabled>
-                    <option>Disabled select</option>
-                  </Form.Select>
+                  <Form.Control placeholder="" enabled />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Check
@@ -41,6 +39,7 @@ export function LoginModal(props) {
         </Container>
       </Modal.Body>
       <Modal.Footer>
+        <Button onClick={props.onHide}>Login</Button>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>

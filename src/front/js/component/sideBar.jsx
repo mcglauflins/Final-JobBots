@@ -1,51 +1,31 @@
-import React from 'react';
-import {
-  CDBSidebar,
-  CDBSidebarContent,
-  CDBSidebarFooter,
-  CDBSidebarHeader,
-  CDBSidebarMenu,
-  CDBSidebarMenuItem,
-} from 'cdbreact';
-import { NavLink } from 'react-router-dom';
+import React, {UseState} from 'react';
+import * as FaIcons from 'react-icons/fa'
+import * as AiIcons from 'react-icons/ai'
+import {Link} from 'react-router-dom';
+ 
+function SideNavbar() {
+  const [sidebar, setSidebar] = UseState(false)
 
-const Sidebar = () => {
+  const showSidebar = () => setSidebar(!sidebar)
+  
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
-      <CDBSidebar textColor="#fff" backgroundColor="#333">
-        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-          <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
-            Sidebar
-          </a>
-        </CDBSidebarHeader>
-
-        <CDBSidebarContent className="sidebar-content">
-          <CDBSidebarMenu>
-            <NavLink exact to="/dashboard" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/account" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Account</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/jobs" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Jobs</CDBSidebarMenuItem>
-            </NavLink>
-            
-          </CDBSidebarMenu>
-        </CDBSidebarContent>
-
-        <CDBSidebarFooter style={{ textAlign: 'center' }}>
-          <div
-            style={{
-              padding: '20px 5px',
-            }}
-          >
-            Sidebar Footer
-          </div>
-        </CDBSidebarFooter>
-      </CDBSidebar>
-    </div>
+    <>
+      <div className='sideBar'>
+        <Link to="#" className="menu-bars">
+          <FaIcons.FaBars onClick={showSidebar} />
+        </Link>
+      </div>
+      <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+        <ul className="nav-menu-items">
+          <li className="navbar-toggle">
+            <Link to="#" className="menu-bars">
+              <AiIcons.AiOutlineClose />
+            </Link>  
+          </li>
+        </ul>
+      </nav>
+    </>
   );
-};
+}
 
-export default Sidebar;
+export default SideNavbar
