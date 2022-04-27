@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
 import { LoginModal } from "./loginModal.jsx";
+import "../../styles/navbar.css";
+
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -13,7 +15,11 @@ export const Navbar = () => {
       <LoginModal show={showModal} onHide={handleShowModal} />
       <nav className="navbar navbar-light bg-light expand-lg">
         <div className="container">
-          <img src={logo} />
+          <Link to="/">
+            <button className="landingPage">
+              <img src={logo} />
+            </button>
+          </Link>
           <div className="ml-auto">
             <div className="icons-right">
               <div className="hamburger">
