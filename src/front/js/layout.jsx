@@ -13,6 +13,7 @@ import {Welcome} from "./views/Welcome.jsx";
 import Profile from "./views/Profile.jsx";
 import Faqs from "./views/Faq.jsx";
 import About from "./views/About.jsx";
+
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -36,6 +37,9 @@ const Layout = () => {
             </Route>
             <Route  path="/Faqs">
               <Faqs />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
             </Route>
             <Route>
               <h1>Not found!</h1>

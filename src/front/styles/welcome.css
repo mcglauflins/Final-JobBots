@@ -7,49 +7,76 @@
 html,
 body {
   height: 100%;
-  background-image: linear-gradient(90deg, #1150cb 50%, #fff 50%);
-}
-#navbar {
-  background-image: linear-gradient(90deg, #1150cb 50%, #fff 50%);
+  background-image: linear-gradient(160deg, #0093E9 0%, #00ECD2 100%);
 }
 .firstWordTitle h3 {
   color: #084080;
-  font-size: 3.125rem;
+  font-size: 6rem;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
+  text-align: left;
 }
 .secondWordTitle h1 {
   color: #1150cb;
-  font-size: 4.375rem;
+  font-size: 8rem;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
+  text-align: right;
+}
+.container {
+  padding-top: 1rem;
+  padding-bottom: 1.3rem;
+}
+.rowButton {
+  padding-top: 2rem;
 }
 .btn1 {
   background-color: #1150cb;
   border: 0.313rem;
   border-color: rgb(15, 78, 150);
-  width: 14rem;
-  font-size: 3rem;
+  width: 20rem;
+  font-size: 5rem;
   color: #fff;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
-  margin-top: 3rem;
+  align-items: center;
+  
 }
 .btn1:hover {
   box-shadow: 0.313rem 0.313rem 0.688rem rgba(33, 33, 33, 0.2);
 }
 .firstWordTitle {
   padding-top: 5rem;
-  text-align: center;
+  text-align: left;
 }
 .secondWordTitle {
-  text-align: right;
-}
-.welcome img {
-  width: 100%;
-  height: auto;
-  padding-right: 1.45rem;
+  text-align: center;
 }
 .buttonColumn {
-  text-align: center;
+  padding-left: 7rem;
+}
+@media screen and (max-width: 768px) {
+  .welcome {
+    display: none;
+  }
+  h1 {
+    color: #fff !important;
+    position: relative;
+    left: -1rem;
+    font-size: 4.5rem !important;
+  }
+  h3{
+    color: #334083 !important;
+    font-size: 3.5rem !important;
+  } 
+  .btn1 {
+    color: #fff;
+    background-color: #334083 ;
+    width: 13rem;
+    font-size:2.5rem;
+    position: relative;
+    left: -1rem;
+    bottom: 2rem;
+
+  }
 }

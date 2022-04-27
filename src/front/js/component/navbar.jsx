@@ -4,15 +4,16 @@ import logo from "../../img/logo.png";
 import { LoginModal } from "./loginModal.jsx";
 import "../../styles/navbar.css";
 
+
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
   };
   return (
-    <React.Fragment>
+    <React.Fragment xs={6} md={4}>
       <LoginModal show={showModal} onHide={handleShowModal} />
-      <nav className="navbar navbar-light bg-light expand-lg" id="navbar">
+      <nav className="navbar navbar-light bg-light expand-lg">
         <div className="container">
           <Link to="/">
             <button className="landingPage">
@@ -85,9 +86,9 @@ export const Navbar = () => {
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link to="/dashboard" className="dropdown-item">
                       Dashboard
-                    </a>
+                    </Link>
                   </li>
                 </ul>
                 {/* </Link> */}
