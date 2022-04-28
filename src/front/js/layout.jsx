@@ -13,6 +13,7 @@ import {Welcome} from "./views/Welcome.jsx";
 import Profile from "./views/Profile.jsx";
 import Faqs from "./views/Faq.jsx";
 import About from "./views/About.jsx";
+import HowItWorks from "./views/Howitworks.jsx";
 
 //create your first component
 const Layout = () => {
@@ -38,8 +39,8 @@ const Layout = () => {
             <Route  path="/Faqs">
               <Faqs />
             </Route>
-            <Route exact path="/profile">
-              <Profile />
+            <Route exact path="/Howitworks">
+              <HowItWorks />
             </Route>
             <Route>
               <h1>Not found!</h1>

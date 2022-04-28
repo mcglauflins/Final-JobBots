@@ -49,11 +49,6 @@ export const Navbar = () => {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Download
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
                       FAQ
                     </a>
                   </li>
