@@ -10,7 +10,7 @@ import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
 // import {Modal} from "./component/loginModal.jsx";
 import {Welcome} from "./views/Welcome.jsx";
-import Profile from "./views/Profile.jsx";
+import {Dashboard} from "./views/dashboard.jsx";
 import Faqs from "./views/Faq.jsx";
 import About from "./views/About.jsx";
 
@@ -29,17 +29,14 @@ const Layout = () => {
             <Route exact path="/">
               <Welcome />
             </Route>
-            <Route  path="/Profile">
-              <Profile />
-            </Route>
             <Route  path="/About">
               <About />
             </Route>
             <Route  path="/Faqs">
               <Faqs />
             </Route>
-            <Route exact path="/profile">
-              <Profile />
+            <Route exact path="/dashboard">
+              <Dashboard />
             </Route>
             <Route>
               <h1>Not found!</h1>
