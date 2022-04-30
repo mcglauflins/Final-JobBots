@@ -80,7 +80,7 @@ export const Navbar = () => {
                     </a>
                   </li>
                   <li>
-                    <Link to="/dashboard" className="dropdown-item">
+                    <Link to="/profile" className="dropdown-item">
                       Dashboard
                     </Link>
                   </li>
