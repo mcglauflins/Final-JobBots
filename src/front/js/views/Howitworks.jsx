@@ -1,8 +1,10 @@
 import React from "react";
-import Container from 'react-bootstrap/Container';
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../../styles/about.css";
+import "../../styles/howitworks.css";
+import Button from 'react-bootstrap/Button'
 
 function HowItWorks() {
   return (
@@ -44,6 +46,11 @@ function HowItWorks() {
             in condimentum ex lacus ut dui.
           </Col>
         </Row>
+        <div className="howitworks">
+              <Button className="starthere" variant="primary" size="sm">
+            Start here!
+          </Button>{" "}
+          </div>
       </Container>
     </div>
   );
