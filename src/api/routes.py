@@ -18,18 +18,6 @@ from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 
 api = Blueprint('api', __name__)
-app = Flask(__name__)
-app.url_map.strict_slashes = False
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_CONNECTION_STRING')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-MIGRATE = Migrate(app, db)
-db.init_app(app)
-CORS(app)
-setup_admin(app)
-
-# Setup the Flask-JWT-Extended extension
-app.config["JWT_SECRET_KEY"] = "fhL>?`[L/FNd9aN>"  # Change this!
-jwt = JWTManager(app)
 
 
 # Create a route to authenticate your users and return JWTs. The
@@ -53,15 +41,15 @@ def postSignup():
 def login():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-
-    emailMatches = db.session.query(db.exists().where(User.email == email)).scalar()
-    passwordMatches = db.session.query(db.exists().where(User.password == password)).scalar()
-
-    if emailMatches == False and passwordMatches == False:
-        return jsonify({"msg": "Bad username or password"}), 401
-
-    access_token = create_access_token(identity=email)
-    return jsonify(access_token=access_token)
+    # Query your database for email and password
+    user = User.query.filter_by(email=email, password=password).first()
+    if user is None:
+        # the user was not found on the database
+        return jsonify({"msg": "Bad email or password"}), 401
+    
+    # create a new token with the user id inside
+    access_token = create_access_token(identity=user.id)
+    return jsonify({ "token": access_token, "user_id": user.id })
 
 @api.route("/dashboard", methods=["GET"])
 @jwt_required()
