@@ -38,19 +38,19 @@ export const Navbar = () => {
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link to="/about" className="dropdown-item" >
                       About
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link to="/howitworks" className="dropdown-item" >
                       How it works
-                    </a>
-                  </li>
+                    </Link>
+                  </li>      
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link to="/faqs" className="dropdown-item" href="#">
                       FAQ
-                    </a>
+                    </Link>
                   </li>
                 </ul>
                 {/* </Link> */}
