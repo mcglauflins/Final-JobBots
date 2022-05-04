@@ -1,0 +1,13 @@
+.howitworks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.starthere{
+    font-size: 1.5rem;
+    width: 10rem;
+    color: #0d6efd;
+    background-color: #0dcaf0;
+    border-color: #000911;
+}

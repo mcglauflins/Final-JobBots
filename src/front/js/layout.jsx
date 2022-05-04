@@ -13,6 +13,7 @@ import {Welcome} from "./views/Welcome.jsx";
 import {Dashboard} from "./views/dashboard.jsx";
 import Faqs from "./views/Faq.jsx";
 import About from "./views/About.jsx";
+import HowItWorks from "./views/Howitwork.jsx";
 
 //create your first component
 const Layout = () => {
@@ -24,9 +25,9 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
+          <Navbar />
           <Switch>
             <Route exact path="/">
-              <Navbar />
               <Welcome />
             </Route>
             <Route  path="/About">
@@ -34,6 +35,9 @@ const Layout = () => {
             </Route>
             <Route  path="/Faqs">
               <Faqs />
+            </Route>
+            <Route  path="/Howitworks">
+              <HowItWorks />
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />

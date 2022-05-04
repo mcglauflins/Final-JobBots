@@ -40,6 +40,7 @@ body {
   font-family: "Oswald", sans-serif;
   font-weight: 300;
   align-items: center;
+  border-radius: 15px;
   
 }
 .btn1:hover {

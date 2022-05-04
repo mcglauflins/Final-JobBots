@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/logo.png";
 import { LoginModal } from "./loginModal.jsx";
 import "../../styles/navbar.css";
-
+import { SignUpModal } from "./signupModal.jsx";
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +16,7 @@ export const Navbar = () => {
         <div className="container">
           <Link to="/">
             <button className="landingPage">
-              <img src={logo} />
+              <h1 className="title">SERC-BOT</h1>
             </button>
           </Link>
           <div className="ml-auto">
@@ -38,12 +37,12 @@ export const Navbar = () => {
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li>
-                    <Link to="/about" className="dropdown-item" >
+                    <Link to="/about" className="dropdown-item">
                       About
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="dropdown-item">
+                    <Link to="/Howitworks" className="dropdown-item">
                       How it works
                     </Link>
                   </li>
@@ -72,12 +71,7 @@ export const Navbar = () => {
                 >
                   <li onClick={handleShowModal}>
                     <a className="dropdown-item" href="#">
-                      Login
-                    </a>
-                  </li>
-                  <li onClick={handleShowModal}>
-                    <a className="dropdown-item" href="#">
-                      Sign Up
+                      Login/ Sign Up
                     </a>
                   </li>
                   <li>
