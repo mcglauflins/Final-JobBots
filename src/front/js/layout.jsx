@@ -4,14 +4,15 @@ import ScrollToTop from "./component/scrollToTop.jsx";
 
 import injectContext from "./store/appContext";
 
-import { Home } from "./views/home.jsx";
-import { Demo } from "./views/demo.jsx";
+
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
 // import {Modal} from "./component/loginModal.jsx";
 import {Welcome} from "./views/Welcome.jsx";
-import Profile from "./views/Profile.jsx";
+import {Dashboard} from "./views/dashboard.jsx";
+import Faqs from "./views/Faq.jsx";
+import About from "./views/About.jsx";
 
 //create your first component
 const Layout = () => {
@@ -28,12 +29,14 @@ const Layout = () => {
               <Navbar />
               <Welcome />
             </Route>
-            <Route exact path="/demo">
-              <Navbar />
-              <Demo />
+            <Route  path="/About">
+              <About />
             </Route>
-            <Route exact path="/profile">
-              <Profile />
+            <Route  path="/Faqs">
+              <Faqs />
+            </Route>
+            <Route exact path="/dashboard">
+              <Dashboard />
             </Route>
             <Route>
               <h1>Not found!</h1>
