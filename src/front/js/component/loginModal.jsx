@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,6 +7,11 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 export function LoginModal(props) {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  function login (email, password) {
+    fetch("")
+  }
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
@@ -21,16 +26,16 @@ export function LoginModal(props) {
               <>
                 <Form.Group className="mb-3">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control placeholder="" enabled />
+                  <Form.Control placeholder="" enabled onChange={e=>setEmail(e.target.value)} />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control placeholder="" enabled />
+                  <Form.Control placeholder="" enabled onChange={e=>setPassword(e.target.value)} />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Check
                     type="checkbox"
-                    label="Save Username"
+                    label="Save Email"
                   />
                 </Form.Group>
               </>
@@ -40,7 +45,6 @@ export function LoginModal(props) {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Login</Button>
-        <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
