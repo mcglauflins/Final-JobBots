@@ -7,10 +7,28 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 export function LoginModal(props) {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  function login (email, password) {
-    fetch("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  function login(email, password) {
+    fetch(
+      "https://3001-mcglauflins-finaljobbot-i2elavp1u1c.ws-us44.gitpod.io/api/login",
+      {
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application.json",
+        },
+        "body": { "email": email, "password": password },
+      }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
@@ -26,17 +44,22 @@ export function LoginModal(props) {
               <>
                 <Form.Group className="mb-3">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control placeholder="" enabled onChange={e=>setEmail(e.target.value)} />
+                  <Form.Control
+                    placeholder=""
+                    enabled
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control placeholder="" enabled onChange={e=>setPassword(e.target.value)} />
+                  <Form.Control
+                    placeholder=""
+                    enabled
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Check
-                    type="checkbox"
-                    label="Save Email"
-                  />
+                  <Form.Check type="checkbox" label="Save Email" />
                 </Form.Group>
               </>
             </Col>
@@ -44,7 +67,7 @@ export function LoginModal(props) {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Login</Button>
+        <Button onClick={() => login(email, password)}>Login</Button>
       </Modal.Footer>
     </Modal>
   );
