@@ -64,10 +64,12 @@ export function LoginModal(props) {
               </>
             </Col>
           </Row>
+        <Button onClick={() => login(email, password)}>Login</Button>
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={() => login(email, password)}>Login</Button>
+        <h2>Need an Account?</h2>
+        <Button onClick={props.onHide}>Click Here To Sign Up</Button>
       </Modal.Footer>
     </Modal>
   );
