@@ -4,13 +4,11 @@ import ScrollToTop from "./component/scrollToTop.jsx";
 
 import injectContext from "./store/appContext";
 
-
-
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
 // import {Modal} from "./component/loginModal.jsx";
-import {Welcome} from "./views/Welcome.jsx";
-import {Dashboard} from "./views/dashboard.jsx";
+import { Welcome } from "./views/Welcome.jsx";
+import { Dashboard } from "./views/dashboard.jsx";
 import Faqs from "./views/Faq.jsx";
 import About from "./views/About.jsx";
 import HowItWorks from "./views/Howitwork.jsx";
@@ -25,18 +23,21 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Navbar />
           <Switch>
             <Route exact path="/">
+              <Navbar />
               <Welcome />
             </Route>
-            <Route  path="/About">
+            <Route path="/About">
+            <Navbar />
               <About />
             </Route>
-            <Route  path="/Faqs">
+            <Route path="/Faqs">
+            <Navbar />
               <Faqs />
             </Route>
-            <Route  path="/Howitworks">
+            <Route path="/Howitworks">
+            <Navbar />
               <HowItWorks />
             </Route>
             <Route exact path="/dashboard">
