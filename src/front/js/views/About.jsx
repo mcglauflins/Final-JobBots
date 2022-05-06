@@ -16,8 +16,8 @@ function About() {
       <h1 className="header">The Team</h1>
       <Container className="content" fluid="md">
         <CardGroup>
-        <Card>
-            <Card.Img variant="top" src={Ron} />
+        <Card className="card1" >
+            <Card.Img className="imageSarah" variant="top" src={Ron} style={{ borderRadius: 25 }} />
             <Card.Body>
               <Card.Title>Ron Butler</Card.Title>
               <Card.Text>
@@ -31,7 +31,7 @@ function About() {
               <Card.Link href="#">Card Link</Card.Link>
             </Card.Footer>
           </Card>
-          <Card>
+          <Card className="card">
             <Card.Img variant="top" src={updated} />
             <Card.Body>
               <Card.Title>Card title</Card.Title>
@@ -46,7 +46,7 @@ function About() {
               <Card.Link href="#">Card Link</Card.Link>
             </Card.Footer>
           </Card>
-          <Card>
+          <Card className="card">
             <Card.Img variant="top" src={updated} />
             <Card.Body>
               <Card.Title>Card title</Card.Title>
@@ -61,7 +61,7 @@ function About() {
               <Card.Link href="#">Card Link</Card.Link>
             </Card.Footer>
           </Card>
-          <Card>
+          <Card className="card">
             <Card.Img variant="top" src={updated} />
             <Card.Body>
               <Card.Title>Card title</Card.Title>
