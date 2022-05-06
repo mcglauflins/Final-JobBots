@@ -42,9 +42,10 @@ export const Navbar = () => {
                   </li>
                   <li>
                     <Link to="/Howitworks" className="dropdown-item">
+
                       How it works
                     </Link>
-                  </li>
+                  </li>      
                   <li>
                     <Link to="/faqs" className="dropdown-item" href="#">
                       FAQ

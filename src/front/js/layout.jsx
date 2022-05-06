@@ -11,6 +11,7 @@ import { Welcome } from "./views/Welcome.jsx";
 import { Dashboard } from "./views/dashboard.jsx";
 import Faqs from "./views/Faq.jsx";
 import About from "./views/About.jsx";
+
 import HowItWorks from "./views/Howitwork.jsx";
 
 //create your first component
@@ -47,6 +48,8 @@ const Layout = () => {
               <h1>Not found!</h1>
             </Route>
           </Switch>
+
+       {  /* <Footer /> */}
           {/* <Footer /> */}
         </ScrollToTop>
       </BrowserRouter>
