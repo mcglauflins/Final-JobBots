@@ -6,9 +6,10 @@ import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import updated from "../../img/updated.png";
 import Ron from "../../img/Ron.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import "../../styles/about.css";
-
-
 
 function About() {
   return (
@@ -16,7 +17,7 @@ function About() {
       <h1 className="header">The Team</h1>
       <Container className="content" fluid="md">
         <CardGroup>
-        <Card>
+          <Card>
             <Card.Img variant="top" src={Ron} />
             <Card.Body>
               <Card.Title>Ron Butler</Card.Title>
@@ -27,8 +28,8 @@ function About() {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              
-              <Card.Link href="#">Card Link</Card.Link>
+              <FontAwesomeIcon icon={faLinkedin} />
+              <FontAwesomeIcon icon={faGithub} />
             </Card.Footer>
           </Card>
           <Card>

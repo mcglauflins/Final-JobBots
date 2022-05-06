@@ -10,7 +10,7 @@ function Faqs() {
       <Accordion className="faq-rw">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
-            Q: Can I use JobBots with any jobsearch website?
+            Q: Can I use SERCBot with any jobsearch website?
           </Accordion.Header>
           <Accordion.Body>
             A: At the moment JobBots can only be used with Linkedin, but in the short
@@ -20,17 +20,17 @@ function Faqs() {
         </Accordion.Item>
         <Accordion.Item eventKey="1">
           <Accordion.Header>
-            Q: Do I have to create an account to use JobBots?
+            Q: Do I have to create an account to use SERCBot?
           </Accordion.Header>
           <Accordion.Body>
-            A:.
+            A: Yes, in order to use and upload your resume to SERCBot you will need to create a Profile with us..
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
           <Accordion.Header>
-            Q: Will JobBots work on my device? </Accordion.Header>
+            Q: Will SERCBot work on my device? </Accordion.Header>
           <Accordion.Body>
-            A: .
+            A: Currently SERCBot .
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="3">
