@@ -4,8 +4,7 @@
     
 }
 .about{
-    background-color: aliceblue;
+    background: rgba(153, 196, 216, 0.5);
+    border-radius: .5rem;
     border:.25em;
-    border-color: #47d4d4;
-    border-style:solid;
 }

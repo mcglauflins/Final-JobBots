@@ -5,17 +5,17 @@ import Col from "react-bootstrap/Col";
 import robotLogo from "../../img/updated.png";
 import "../../styles/welcome.css";
 import { useState, useRef } from "react";
-import Image from 'react-bootstrap/Image'
+
 
 export const Welcome = () => {
-  // const [style, setStyle] = useState({
-  //   backgroundImage: `url(${robotLogo})`,
-  //   backgroundRepeat: "repeat",
-  //   backgroundPosition: "16% 100%",
-  //   minHeight: "71vh",
-  //   backgroundSize: "15%",
-  //   opacity: ".2",
-  // });
+  const [style, setStyle] = useState({
+    backgroundImage: `url(${robotLogo})`,
+    backgroundRepeat: "repeat",
+    backgroundPosition: "16% 100%",
+    minHeight: "71vh",
+    backgroundSize: "15%",
+    opacity: ".2",
+  });
 
   return (
     <Container>

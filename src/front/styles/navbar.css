@@ -51,11 +51,17 @@
   padding-right: 0.3rem;
 }
 .landingPage {
-    background: transparent;
-    border: none;
-    }
+  background: transparent;
+  border: none;
+  font-family: "Oswald", sans-serif;
+  font-style: bold;
+}
+.title {
+  font-family: "Oswald", sans-serif;
+  font-style: bold;
+  font-size: 4rem;
+ color: #084080;
+}
 @media screen and (max-width: 768px) {
-  #navbar {
-    background: #1150cb !important; 
-  }
+  
 }
