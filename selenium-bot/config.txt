@@ -1,0 +1,6 @@
+mail:perezcjp05@gmail.com
+password:Linkedin001!
+search:junior software developer
+location:Miami
+time(in seconds):4
+distance:5

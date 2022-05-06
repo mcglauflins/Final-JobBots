@@ -1,3 +1,13 @@
+
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+/* * {
+  outline: 1px solid red;
+} */
 html,
 body {
   height: 100%;
@@ -28,12 +38,13 @@ body {
   background-color: #1150cb;
   border: 0.313rem;
   border-color: rgb(15, 78, 150);
-  width: 20rem;
-  font-size: 5rem;
+  width: 18rem;
+  font-size: 4rem;
   color: #fff;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
   align-items: center;
+  border-radius: 15px;
   
 }
 .btn1:hover {
