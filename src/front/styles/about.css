@@ -1,3 +1,4 @@
+
 .header {
   text-align: center;
   color: #47d4d4;
@@ -31,4 +32,14 @@
 .card-title {
     margin-bottom: 0.5rem;
     text-align: center;
+=======
+.header{
+   text-align: center;
+   color: #47d4d4;
+    
+}
+.about{
+    background: rgba(153, 196, 216, 0.5);
+    border-radius: .5rem;
+    border:.25em;
 }
