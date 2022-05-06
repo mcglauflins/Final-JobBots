@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { LoginModal } from "./loginModal.jsx";
 import "../../styles/navbar.css";
-import { SignUpModal } from "./signupModal.jsx";
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);

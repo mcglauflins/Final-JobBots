@@ -20,7 +20,7 @@ export const Welcome = () => {
   return (
     <Container>
         <Row className="container">
-          <Col md={{span:5, offset:3}} sm={{span:9, offset:2}} xs={{span:12, offset:0}} lg={{span:12, offset:3}} className="firstWordTitle">
+          <Col md={{span:4, offset:3}} sm={{span:9, offset:2}} xs={{span:12, offset:0}} lg={{span:9, offset:3}} className="firstWordTitle">
             <h3>Job Applications...</h3>
           </Col>
         </Row>
