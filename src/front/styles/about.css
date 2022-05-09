@@ -5,10 +5,8 @@
   text-shadow: 2px 2px #000000;
 }
 .content {
-  background-color: aliceblue;
-  border: 0.25em;
-  border-color: #47d4d4;
-  border-style: solid;
+  background-color: transparent;
+  
 }
 .card {
   position: relative;
@@ -16,12 +14,20 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.932);
   background-clip: border-box;
   border: 0px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0rem;
+  margin:1rem;
 }
-.card-img-top {
+.imageSarah {
+  border-top-left-radius: 20%;
+}
+.card1 {
+  border-top-left-radius: 20%;
+  border-top-right-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.932);
+}
+/* .card-img-top {
   border-radius: 25%;
   width: 7rem;
   display: block;

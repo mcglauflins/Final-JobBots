@@ -32,7 +32,7 @@ function About() {
               <FontAwesomeIcon icon={faGithub} />
             </Card.Footer>
           </Card>
-          <Card>
+          <Card className="card">
             <Card.Img variant="top" src={updated} />
             <Card.Body>
               <Card.Title>Card title</Card.Title>
@@ -47,7 +47,7 @@ function About() {
               <Card.Link href="#">Card Link</Card.Link>
             </Card.Footer>
           </Card>
-          <Card>
+          <Card className="card">
             <Card.Img variant="top" src={updated} />
             <Card.Body>
               <Card.Title>Card title</Card.Title>
@@ -62,7 +62,7 @@ function About() {
               <Card.Link href="#">Card Link</Card.Link>
             </Card.Footer>
           </Card>
-          <Card>
+          <Card className="card">
             <Card.Img variant="top" src={updated} />
             <Card.Body>
               <Card.Title>Card title</Card.Title>
