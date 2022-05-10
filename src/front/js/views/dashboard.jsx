@@ -11,9 +11,12 @@ import Feedback from "react-bootstrap/Feedback";
 import { Formik } from "formik";
 import * as yup from "yup";
 import InputGroup from "react-bootstrap/InputGroup";
+import useStore from "../store/zustand"
 
 export const Dashboard = () => {
   // const { Formik } = formik;
+  const store = useStore()
+  console.log("Dashboard logging status: " + store.loggedIn);
 
   const schema = yup.object().shape({
     firstName: yup.string().required(),
@@ -27,7 +30,7 @@ export const Dashboard = () => {
   });
 
   return (
-    <div className="d-flex" style={{ height: "100vh" }}>
+    store.loggedIn ? (<div className="d-flex" style={{ height: "100vh" }}>
       <Sidebar />
       <Container>
         <Formik
@@ -215,7 +218,7 @@ export const Dashboard = () => {
           )}
         </Formik>
       </Container>
-    </div>
+    </div>) : (<h1>UNAUTHORIZED 404</h1>)
   );
 };
 
