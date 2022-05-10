@@ -4,24 +4,17 @@ const useStore = create((set, get) => ({
   people: [],
   vehicles: [],
   planets: [],
-  addPeople: (person) => {
+  loggedIn: false,
+  // addPeople: (person) => {
+  //   set({
+  //     people: get().people.concat(person),
+  //   });
+  // },
+  setLogin: (isLogged) => {
     set({
-      people: get().people.concat(person),
+      loggedIn: get().loggedIn = isLogged, 
     });
-  },
-  convertURL: (url) => {
-    return url.replace(/https:\/\/swapi\.(dev|tech)\/api/i, "");
-  },
-  addVehicles: (vehicle) => {
-    set({
-      vehicles: get().vehicles.concat(vehicle),
-    });
-  },
-  addPlanets: (planets) => {
-    set({
-      planets: get().planets.concat(planets),
-    });
-  },
+  }
 }));
 
 export default useStore;

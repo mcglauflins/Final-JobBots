@@ -12,54 +12,32 @@ const injectContext = (PassedComponent) => {
     //this will be passed as the contenxt value
     const state = useStore((state) => state);
 
-    const loadPeopleData = (store, url = "https://swapi.dev/api/people/") => {
-      var requestOptions = {
-        method: "GET",
-        redirect: "follow",
-      };
-
-      fetch(url, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-          store.addPeople(result.results);
-          if (result.next !== null) {
-            loadPeopleData(store, result.next);
-          }
-        });
-    };
-
-    const loadVehicleData = (
-      store,
-      url = "https://swapi.dev/api/vehicles/"
-    ) => {
-      var requestOptions = {
-        method: "GET",
-        redirect: "follow",
-      };
-
-      fetch(url, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-          store.addVehicles(result.results);
-          if (result.next !== null) {
-            loadVehicleData(store, result.next);
-          }
-        });
-    };
-    const loadPlanets = (store, url = "https://swapi.dev/api/planets/") => {
-      var requestOptions = {
-        method: "GET",
-        redirect: "follow",
-      };
-
-      fetch(url, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-          store.addPlanets(result.results);
-          if (result.next !== null) {
-            loadPlanets(store, result.next);
-          }
-        });
+    const getDashboard = async (store, url = 'https://3001-mcglauflins-finaljobbot-a5twcebykfy.ws-us44.gitpod.io/api/dashboard') => {
+      // retrieve token form localStorage
+      const token = localStorage.getItem('jwt-token');
+      const requestOptions = {
+        method: 'GET',
+        headers: { 
+          "Content-Type": "application/json",
+          'Authorization': 'Bearer '+ token // ⬅⬅⬅ authorization token
+        } 
+     }
+  
+      const resp = await fetch(url, requestOptions)
+      if(!resp.ok) {throw Error("There was a problem in the login request")}
+  
+      else if(resp.status === 403){
+          throw Error("Missing or invalid token");
+      }
+      else if(resp.status === 401 || resp.status === 422){
+          store.setLogin(false);
+      }
+      else{
+        const data = await resp.json();
+        store.setLogin(true)
+        console.log("This is the data you requested", data);
+        return data
+      }
     };
 
     useEffect(() => {
@@ -73,9 +51,10 @@ const injectContext = (PassedComponent) => {
        *
        **/
 
-      loadPeopleData(state);
-      loadVehicleData(state);
-      loadPlanets(state);
+      // loadPeopleData(state);
+      // loadVehicleData(state);
+      // loadPlanets(state);
+      getDashboard(state)
     }, []);
 
     // The initial value for the context is not null anymore, but the current state of this component,
