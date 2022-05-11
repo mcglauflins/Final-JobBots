@@ -17,7 +17,11 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 
+import hashlib
+
 api = Blueprint('api', __name__)
+
+salt = "X#34!Asdft3["
 
 
 # Create a route to authenticate your users and return JWTs. The
@@ -30,7 +34,9 @@ def postSignup():
     if emailExists:
         return jsonify("Email is already in use.")
     else:
-        userCredential = User(email=request_body_credentials["email"], password=request_body_credentials["password"])
+        password = request_body_credentials["password"] + salt
+        hashedPassword = hashlib.sha224(password.encode('utf-8')).hexdigest()
+        userCredential = User(first_name=request_body_credentials["first_name"], last_name=request_body_credentials["last_name"],email=request_body_credentials["email"], password=hashedPassword)
         db.session.add(userCredential)
         db.session.commit()
 
@@ -40,9 +46,11 @@ def postSignup():
 @api.route("/login", methods=["POST"])
 def login():
     email = request.json.get("email", None)
-    password = request.json.get("password", None)
+    password = request.json.get("password", None) + salt
+    hashedPassword = hashlib.sha224(password.encode('utf-8')).hexdigest()
+
     # Query your database for email and password
-    user = User.query.filter_by(email=email, password=password).first()
+    user = User.query.filter_by(email=email, password=hashedPassword).first()
     if user is None:
         # the user was not found on the database
         return jsonify({"msg": "Bad email or password"}), 401
@@ -56,6 +64,33 @@ def login():
 def dashboard():
     current_user = get_jwt_identity()
     return jsonify(logged_in_as=current_user), 200
+
+@api.route("/change-profile", methods=["PUT"])
+def updateProfileInfo():
+    request_body_credentials = request.get_json(force=True)
+    emailExists = bool(User.query.filter_by(email=request_body_credentials["email"]).first())
+
+    if emailExists:
+        return jsonify("Email is already in use.")
+    else:
+        user = User.query.get(request_body_credentials["id"])
+
+        email = request_body_credentials["email"]
+        first_name = request_body_credentials["first_name"]
+        last_name = request_body_credentials["last_name"]
+
+        if(email):
+            user.email = email
+            db.session.commit()
+        if(first_name and len(first_name) != 0):
+            user.first_name = first_name
+            db.session.commit()
+        if(last_name and len(last_name) != 0):
+            user.last_name = last_name
+            db.session.commit()
+
+
+        return jsonify("Success!")
 
 @api.route("/accounts", methods=["GET"])
 def getAccounts():
