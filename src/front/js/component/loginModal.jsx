@@ -7,6 +7,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import useStore from "../store/zustand"
+import ForgotPassword from "./views/Forgot-password.jsx"
 
 export function LoginModal(props) {
   const store = useStore();
@@ -70,6 +71,7 @@ export function LoginModal(props) {
             </Col>
           </Row>
         <Link onClick={() => login(email, password)} to={"/dashboard"}>Login</Link>
+        <Link to={"/forgot-password"} >Forgot Password</Link>
         </Container>
       </Modal.Body>
       <Modal.Footer>
