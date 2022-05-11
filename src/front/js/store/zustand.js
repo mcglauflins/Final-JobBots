@@ -35,7 +35,7 @@ const useStore = create((set, get) => ({
     set({ 
       codeVerified: get().codeVerified = isVerified,
     })
-  }
+  },
 }));
 
 export default useStore;

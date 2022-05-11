@@ -12,7 +12,7 @@ const injectContext = (PassedComponent) => {
     //this will be passed as the contenxt value
     const state = useStore((state) => state);
 
-    const getDashboard = async (store, url = `https://3001-mcglauflins-finaljobbot-b1rc90o02d3.ws-us44.gitpod.io/api/dashboard`) => {
+    const getDashboard = async (store, url = `https://3001-mcglauflins-finaljobbot-sc3yb847i8d.ws-us44.gitpod.io/api/dashboard`) => {
       // retrieve token form localStorage
       const token = localStorage.getItem('jwt-token');
       const requestOptions = {
