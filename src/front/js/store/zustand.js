@@ -1,10 +1,8 @@
 import create from "zustand";
 
 const useStore = create((set, get) => ({
-  people: [],
-  vehicles: [],
-  planets: [],
   loggedIn: false,
+  currentUserID: -1,
   // addPeople: (person) => {
   //   set({
   //     people: get().people.concat(person),
@@ -13,6 +11,11 @@ const useStore = create((set, get) => ({
   setLogin: (isLogged) => {
     set({
       loggedIn: get().loggedIn = isLogged, 
+    });
+  },
+  setUserID: (id) => {
+    set({
+      currentUserID: get().currentUserID = id, 
     });
   }
 }));
