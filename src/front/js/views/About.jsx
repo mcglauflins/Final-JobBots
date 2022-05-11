@@ -17,7 +17,7 @@ import "../../styles/about.css";
 function About() {
   return (
     <div>
-      <h1 className="header">Meet The SERC Team</h1>
+      <h1 className="header">Meet The Serc Team</h1>
       <Container className="content" fluid="md">
         <CardGroup>
         <Card className="card1" >
@@ -49,9 +49,7 @@ function About() {
                 Full-Stack Developer
               </Card.Text>
               <Card.Text>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
+              Hello, my name is Ernesto, a full-stack software developer based on Miami. I've work on both, SERC's back-end and front-end. It's a very exciting project that will help thousands of people looking for new jpb positions.
               </Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -94,9 +92,7 @@ function About() {
                 Back-End Developer
               </Card.Text>
               <Card.Text>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
+              Welcome Serc-bot users, I am a full-stack developer from Denver, Colorado. I am a co-contributor to this website, with a specialty in the back-end. I'm what you like to call the Tony Stark of this project... that is all.
               </Card.Text>
             </Card.Body>
             <Card.Footer>
