@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
@@ -12,8 +12,13 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import InputGroup from "react-bootstrap/InputGroup";
 import useStore from "../store/zustand"
+import { LoginModal } from "../component/loginModal.jsx";
 
 export const Dashboard = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  };
   // const { Formik } = formik;
   const store = useStore()
   console.log("Dashboard logging status: " + store.loggedIn);
@@ -218,7 +223,12 @@ export const Dashboard = () => {
           )}
         </Formik>
       </Container>
-    </div>) : (<h1>UNAUTHORIZED 404</h1>)
+    </div>) : (<div>
+      <h1>UNAUTHORIZED 404</h1>
+      <h4>You must <a href="#"onClick={()=>handleShowModal()}>login.</a> </h4>
+
+      <LoginModal show={showModal} onHide={handleShowModal} />
+    </div>)
   );
 };
 
