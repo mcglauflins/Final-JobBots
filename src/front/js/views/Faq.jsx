@@ -6,11 +6,12 @@ import "../../styles/about.css";
 function Faqs() {
   return (
     <div className="faqs">
-      <h1 className="header">FAQS</h1>
+      <h1 className="header">Frequently Asked Questions</h1>
+      <br></br>
       <Accordion className="faq-rw">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
-            Q: Can I use SERCBot with any jobsearch website?
+            Q: Can I use SERC-Bot with any jobsearch website?
           </Accordion.Header>
           <Accordion.Body>
             A: At the moment SERCbot can only be used with Linkedin, but in the short
@@ -20,40 +21,54 @@ function Faqs() {
         </Accordion.Item>
         <Accordion.Item eventKey="1">
           <Accordion.Header>
-            Q: Do I have to create an account to use SERCBot?
+            Q: Do I have to create an account to use SERC-Bot?
           </Accordion.Header>
           <Accordion.Body>
-            A: Yes, in order to use and upload your resume to SERCBot you will need to create a Profile with us..
+            A: Yes, in order to use and upload your resume to SERCBot you will need to create a profile to start your automated job search.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
           <Accordion.Header>
             Q: Will SERCBot work on my device? </Accordion.Header>
           <Accordion.Body>
-            A: Currently SERCBot is running on PC and andriod devices.
+            A: Currently SERCBot is running on Windows and andriod devices. We plan to be compatible with Mac in the near future.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="3">
           <Accordion.Header>
-            Q: can i upload my resume on JobBots? </Accordion.Header>
+            Q: Do I need to upload my resume on SERC-Bot? </Accordion.Header>
           <Accordion.Body>
-            A: Yes, in order to use SERCbot you will need to upload your resume in .pdf format.
+            A: No, in order to use SERC-Bot you only need to link you Linkedin account.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="4">
           <Accordion.Header>
-            Q: Will JobBots apply to jobs for me? </Accordion.Header>
+            Q: Will SERC-Bot apply to jobs for me? </Accordion.Header>
           <Accordion.Body>
-            A: Yes, SERCbot will automatically search and apply to as many jobs as your keywords indicate.
+            A: Yes, SERC-Bot will automatically search and apply to 100 jobs at a time, or however many jobs your keywords shows.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="5">
           <Accordion.Header>
-            Q: Will JobBots keep track of the jobs i've applied to? </Accordion.Header>
+            Q: Will SERC-Bot keep track of the jobs i've applied to? </Accordion.Header>
           <Accordion.Body>
-            A: No, SERCbot will not keep track of the jobs that you have applied to, but 
+            A: No, SERC-Bot will not keep track of the jobs that you have applied to, but 
             Linkedin will keep track of the jobs you have applied to. In future versions
             this is a feature we plan on adding.
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="6">
+          <Accordion.Header>
+            Q: Do I need to download anything? </Accordion.Header>
+          <Accordion.Body>
+            A: No, users do not need to download anything in order to apply to jobs.
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="7">
+          <Accordion.Header>
+            Q: Will SERC-Bot sell or use any of my data? </Accordion.Header>
+          <Accordion.Body>
+            A: No, the goal of SERC-Bot is to provide a free and safe way to make job searching easier for all. Data is encrypted for the safety of our users, and users can delete their account at anytime with no hassle.   
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>

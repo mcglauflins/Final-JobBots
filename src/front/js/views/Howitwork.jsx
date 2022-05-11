@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 function HowItWorks() {
   return (
     <div>
-      <h1 className="header">How Serc Works</h1>
+      <h1 className="header">How Serc-Bot Works</h1>
       <Container className="about" fluid="md">
         <Row>
           <Col className="text">
@@ -33,7 +33,12 @@ function HowItWorks() {
             according to their job search criteria at a time.
             <br></br>
             <br></br>
-            Job searching has never been easier!
+            Our mission for our users is to create a safe and easy way for candidates
+             to apply for jobs with ease, and with the hoped that canidates will be able
+             to find their dream job faster then ever.
+            <br></br>
+            <br></br>
+            Job SERChing has never been easier!
           </Col>
         </Row>
       </Container>
