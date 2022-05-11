@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { LoginModal } from "./loginModal.jsx";
 import "../../styles/navbar.css";
+import useStore from "../store/zustand";
 
 export const Navbar = () => {
+  const store = useStore();
+
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
@@ -69,16 +72,22 @@ export const Navbar = () => {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton1"
                 >
-                  <li onClick={handleShowModal}>
+                  {!store.loggedIn ? (<><li onClick={handleShowModal}>
                     <a className="dropdown-item" href="#">
-                      Login/ Sign Up
+                      Login / Sign Up
                     </a>
                   </li>
                   <li>
                     <Link to="/dashboard" className="dropdown-item">
                       Dashboard
                     </Link>
+                  </li></>) : <>
+                  <li>
+                    <Link to="/dashboard" className="dropdown-item">
+                      Dashboard
+                    </Link>
                   </li>
+                  </>}
                 </ul>
                 {/* </Link> */}
               </div>

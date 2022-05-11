@@ -6,19 +6,22 @@ import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import useStore from "../store/zustand"
 
 export function LoginModal(props) {
+  const store = useStore();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const login = async(email, password) => {
     const resp = await fetch(
-      "https://3001-mcglauflins-finaljobbot-q8y01t1li74.ws-us44.gitpod.io/api/login",
+      `https://3001-mcglauflins-finaljobbot-10npefry8bl.ws-us44.gitpod.io/api/login`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify ({ email: email, password: password }),
+        body: JSON.stringify({ email: email, password: password }),
       }
     )
       if(!resp.ok) throw Error("this is not working!")
@@ -27,32 +30,9 @@ export function LoginModal(props) {
       const data=await resp.json()
       localStorage.setItem("jwt-token",data.token)
       console.log(data)
+      store.setLogin(true)
       return data
   };
-
-  const getDashboard = async () => {
-    // retrieve token form localStorage
-    const token = localStorage.getItem('jwt-token');
-
-    const resp = await fetch("https://3001-mcglauflins-finaljobbot-q8y01t1li74.ws-us44.gitpod.io/api/dashboard", {
-       method: 'GET',
-       headers: { 
-         "Content-Type": "application/json",
-         'Authorization': 'Bearer '+token // ⬅⬅⬅ authorization token
-       } 
-    })
-    if(!resp.ok) {throw Error("There was a problem in the login request")}
-
-    else if(resp.status === 403){
-        throw Error("Missing or invalid token");
-    }
-    else{
-      const data = await resp.json();
-      console.log("This is the data you requested", data);
-      return data
-    }
-
-};
 
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
@@ -77,6 +57,7 @@ export function LoginModal(props) {
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
+                    type="password"
                     placeholder=""
                     enabled
                     onChange={(e) => setPassword(e.target.value)}
@@ -89,6 +70,7 @@ export function LoginModal(props) {
             </Col>
           </Row>
         <Link onClick={() => login(email, password)} to={"/dashboard"}>Login</Link>
+        <Link to={"/forgot-password"} >Forgot Password</Link>
         </Container>
       </Modal.Body>
       <Modal.Footer>

@@ -19,6 +19,7 @@ cloudinary = "*"
 flask-admin = "*"
 selenium = "*"
 flask-jwt-extended = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"

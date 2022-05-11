@@ -1,26 +1,40 @@
 import create from "zustand";
 
 const useStore = create((set, get) => ({
-  people: [],
-  vehicles: [],
-  planets: [],
-  addPeople: (person) => {
+  loggedIn: false,
+  emailSent: false,
+  codeVerified: false,
+  currentUserID: -1,
+  resetCode: -1,
+  // addPeople: (person) => {
+  //   set({
+  //     people: get().people.concat(person),
+  //   });
+  // },
+  setLogin: (isLogged) => {
     set({
-      people: get().people.concat(person),
+      loggedIn: get().loggedIn = isLogged, 
     });
   },
-  convertURL: (url) => {
-    return url.replace(/https:\/\/swapi\.(dev|tech)\/api/i, "");
-  },
-  addVehicles: (vehicle) => {
+  setUserID: (id) => {
     set({
-      vehicles: get().vehicles.concat(vehicle),
+      currentUserID: get().currentUserID = id, 
     });
   },
-  addPlanets: (planets) => {
-    set({
-      planets: get().planets.concat(planets),
-    });
+  setResetCode: (code) => {
+    set({ 
+      resetCode: get().resetCode = code,
+    })
+  },
+  setEmailSent: (sent) => {
+    set({ 
+      emailSent: get().emailSent = sent,
+    })
+  },
+  setCodeVerified: (isVerified) => {
+    set({ 
+      codeVerified: get().codeVerified = isVerified,
+    })
   },
 }));
 
