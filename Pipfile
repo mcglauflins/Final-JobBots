@@ -19,7 +19,7 @@ cloudinary = "*"
 flask-admin = "*"
 selenium = "*"
 flask-jwt-extended = "*"
-sendgrid = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"
