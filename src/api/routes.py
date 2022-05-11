@@ -19,17 +19,15 @@ from flask_jwt_extended import JWTManager
 
 import hashlib
 import random
-import smtplib
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
 
 api = Blueprint('api', __name__)
 
 salt = "X#34!Asdft3["
 
-server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-server.login("sercbots@gmail.com", "Chriscoolmana12")
 
-# Create a route to authenticate your users and return JWTs. The
-# create_access_token() function is used to actually generate the JWT.
 @api.route("/signup", methods=["POST"])
 def postSignup():
     request_body_credentials = request.get_json(force=True)
@@ -102,11 +100,23 @@ def sendResetEmail():
     emailExists = bool(User.query.filter_by(email=request_body_credentials["email"]).first())
 
     if emailExists:
-        user = User.query.get(request_body_credentials["id"])
-
         reset_code = random.randrange(1000, 9999)
-        server.sendmail("sercbots@gmail.com", request_body_credentials["email"], "Hello, here's your reset code for SERC-BOT: " + str(reset_code))
-        server.quit()
+        message = Mail(
+            from_email='sercbots@gmail.com',
+            to_emails=request_body_credentials["email"],
+            subject='reset password - SERC-BOT',
+            html_content='<strong style="font-size:16px">Password reset code: ' + str(reset_code) + '</strong>')
+        try:
+            sg = SendGridAPIClient("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")
+            response = sg.send(message)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
+        except Exception as e:
+            print(e)
+            # print("ERROR: PC LOAD LETTER")
+
+
         return jsonify({
             "Status": "Success",
             "reset_code": reset_code

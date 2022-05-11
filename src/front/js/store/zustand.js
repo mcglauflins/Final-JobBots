@@ -2,7 +2,9 @@ import create from "zustand";
 
 const useStore = create((set, get) => ({
   loggedIn: false,
+  emailSent: false,
   currentUserID: -1,
+  resetCode: -1,
   // addPeople: (person) => {
   //   set({
   //     people: get().people.concat(person),
@@ -17,6 +19,16 @@ const useStore = create((set, get) => ({
     set({
       currentUserID: get().currentUserID = id, 
     });
+  },
+  setResetCode: (code) => {
+    set({ 
+      resetCode: get().resetCode = code,
+    })
+  },
+  setEmailSent: (sent) => {
+    set({ 
+      emailSent: get().emailSent = sent,
+    })
   }
 }));
 

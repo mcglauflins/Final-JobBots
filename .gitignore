@@ -72,4 +72,5 @@ public/
 database.database
 database.db
 diagram.png
-__pycache__/
+__pycache__/sendgrid.env
+sendgrid.env

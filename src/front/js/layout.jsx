@@ -12,6 +12,7 @@ import { Dashboard } from "./views/dashboard.jsx";
 import Faqs from "./views/Faq.jsx";
 import About from "./views/About.jsx";
 import HowItWorks from "./views/Howitwork.jsx";
+import ForgotPassword from "./views/ForgotPassword.jsx";
 
 //create your first component
 const Layout = () => {

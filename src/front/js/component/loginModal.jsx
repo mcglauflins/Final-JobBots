@@ -7,7 +7,6 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import useStore from "../store/zustand"
-import ForgotPassword from "./views/Forgot-password.jsx"
 
 export function LoginModal(props) {
   const store = useStore();
@@ -16,7 +15,7 @@ export function LoginModal(props) {
   const [password, setPassword] = useState("");
   const login = async(email, password) => {
     const resp = await fetch(
-      "https://3001-mcglauflins-finaljobbot-a5twcebykfy.ws-us44.gitpod.io/api/login",
+      "https://3001-mcglauflins-finaljobbot-i4i5av4h1tr.ws-us44.gitpod.io/api/login",
       {
         method: "POST",
         headers: {
