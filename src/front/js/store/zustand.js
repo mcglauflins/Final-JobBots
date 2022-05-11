@@ -3,6 +3,7 @@ import create from "zustand";
 const useStore = create((set, get) => ({
   loggedIn: false,
   emailSent: false,
+  codeVerified: false,
   currentUserID: -1,
   resetCode: -1,
   // addPeople: (person) => {
@@ -28,6 +29,11 @@ const useStore = create((set, get) => ({
   setEmailSent: (sent) => {
     set({ 
       emailSent: get().emailSent = sent,
+    })
+  },
+  setCodeVerified: (isVerified) => {
+    set({ 
+      codeVerified: get().codeVerified = isVerified,
     })
   }
 }));

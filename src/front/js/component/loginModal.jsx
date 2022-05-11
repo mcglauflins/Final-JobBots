@@ -15,7 +15,7 @@ export function LoginModal(props) {
   const [password, setPassword] = useState("");
   const login = async(email, password) => {
     const resp = await fetch(
-      "https://3001-mcglauflins-finaljobbot-i4i5av4h1tr.ws-us44.gitpod.io/api/login",
+      `https://3001-mcglauflins-finaljobbot-b1rc90o02d3.ws-us44.gitpod.io/api/login`,
       {
         method: "POST",
         headers: {

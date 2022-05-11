@@ -19,14 +19,15 @@ from flask_jwt_extended import JWTManager
 
 import hashlib
 import random
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+import requests
+# from sendgrid import SendGridAPIClient
+# from sendgrid.helpers.mail import Mail
 
 
 api = Blueprint('api', __name__)
 
 salt = "X#34!Asdft3["
-
+codeG = -1;
 
 @api.route("/signup", methods=["POST"])
 def postSignup():
@@ -80,6 +81,9 @@ def updateProfileInfo():
         email = request_body_credentials["email"]
         first_name = request_body_credentials["first_name"]
         last_name = request_body_credentials["last_name"]
+        password = request_body_credentials["password"] + salt
+        hashedPassword = hashlib.sha224(password.encode('utf-8')).hexdigest()
+
 
         if(email):
             user.email = email
@@ -90,32 +94,54 @@ def updateProfileInfo():
         if(last_name and len(last_name) != 0):
             user.last_name = last_name
             db.session.commit()
+        if(password and len(password) != 0):
+            user.password = hashedPassword
+            db.session.commit()
 
 
         return jsonify("Success!")
 
+@api.route("/change-password", methods=["PUT"])
+def updatePassword():
+    global codeG
+    request_body_credentials = request.get_json(force=True)
+    emailExists = bool(User.query.filter_by(email=request_body_credentials["email"]).first())
+
+    if emailExists and int(codeG) == int(request_body_credentials["code"]):
+        user = User.query.filter_by(email=request_body_credentials["email"]).first()
+
+        password = request_body_credentials["password"] + salt
+        hashedPassword = hashlib.sha224(password.encode('utf-8')).hexdigest()
+
+        if(password and len(password) != 0):
+            user.password = hashedPassword
+            db.session.commit()
+            return jsonify("Success!")
+
+    elif(int(codeG) != int(request_body_credentials["code"])):
+        return jsonify("Wrong code!")
+        #  Actual Code: " + str(codeG) + "\nReceived Code: " + str(request_body_credentials["code"])
+    else:
+        return jsonify("Email is already in use.")
+
 @api.route("/forgot-password", methods=["POST"])
 def sendResetEmail():
+    global codeG
     request_body_credentials = request.get_json(force=True)
     emailExists = bool(User.query.filter_by(email=request_body_credentials["email"]).first())
 
     if emailExists:
         reset_code = random.randrange(1000, 9999)
-        message = Mail(
-            from_email='sercbots@gmail.com',
-            to_emails=request_body_credentials["email"],
-            subject='reset password - SERC-BOT',
-            html_content='<strong style="font-size:16px">Password reset code: ' + str(reset_code) + '</strong>')
-        try:
-            sg = SendGridAPIClient("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")
-            response = sg.send(message)
-            print(response.status_code)
-            print(response.body)
-            print(response.headers)
-        except Exception as e:
-            print(e)
-            # print("ERROR: PC LOAD LETTER")
-
+        response = requests.post(
+		    "https://api.mailgun.net/v3/customer-service.sercbot.com/messages",
+		    auth=("api", os.getenv('MAILGUN_KEY')),
+		    data={"from": "SERC-BOT <password-reset@customer-service.sercbot.com>",
+			"to": request_body_credentials["email"],
+			"subject": "password reset | SERC-BOT",
+			"text": "Here's your password reset code: " +str(reset_code)})
+        data = response.text
+        codeG = reset_code
+        print(data)
 
         return jsonify({
             "Status": "Success",
