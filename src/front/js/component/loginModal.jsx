@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import {Link, useNavigate, useLocation } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,15 +7,26 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import useStore from "../store/zustand"
+import { useCookies } from "react-cookie"
 
 export function LoginModal(props) {
   const store = useStore();
   const navigate = useNavigate();
-  const location = useLocation();
+  const [cookies, setCookie] = useCookies(['name']);
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(cookies.email);
   const [password, setPassword] = useState("");
   const [resStatus, setResStatus] = useState(-1);
+
+  const isChecked = (e) => {
+    const checked = e.target.checked;
+    if(checked){
+      setCookie('email', email, {path: '/'})
+    }else{
+      return null
+    }
+  }
+
 
   const login = async(email, password) => {
     const resp = await fetch(
@@ -61,7 +72,7 @@ export function LoginModal(props) {
                 <Form.Group className="mb-3">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
-                    placeholder=""
+                    defaultValue={cookies.email ? cookies.email : null}
                     enabled
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -77,7 +88,7 @@ export function LoginModal(props) {
                   <span className="text-danger">{resStatus == 401 ? "Wrong email or password." : null}</span>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Check type="checkbox" label="Save Email" />
+                  <Form.Check type="checkbox" label="Save Email" onClick={(e) => isChecked(e)}/>
                 </Form.Group>
               </>
             </Col>
