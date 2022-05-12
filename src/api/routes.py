@@ -39,7 +39,7 @@ def postSignup():
     else:
         password = request_body_credentials["password"] + salt
         hashedPassword = hashlib.sha224(password.encode('utf-8')).hexdigest()
-        userCredential = User(first_name=request_body_credentials["first_name"], last_name=request_body_credentials["last_name"],email=request_body_credentials["email"], password=hashedPassword)
+        userCredential = User(first_name=request_body_credentials["first_name"], last_name=request_body_credentials["last_name"],username=request_body_credentials["username"],email=request_body_credentials["email"], password=hashedPassword)
         db.session.add(userCredential)
         db.session.commit()
 
