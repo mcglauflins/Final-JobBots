@@ -14,8 +14,8 @@ function Faqs() {
             Q: Can I use SERC-Bot with any jobsearch website?
           </Accordion.Header>
           <Accordion.Body>
-            A: At the moment SERCbot can only be used with Linkedin, but in the short
-            future we plan on expanding JobBots so that it is compatible with
+            A: At the moment SERC-Bot can only be used with Linkedin, but in the short
+            future we plan on expanding SERC-Bot so that it is compatible with
             most job search websites.
           </Accordion.Body>
         </Accordion.Item>
@@ -24,14 +24,14 @@ function Faqs() {
             Q: Do I have to create an account to use SERC-Bot?
           </Accordion.Header>
           <Accordion.Body>
-            A: Yes, in order to use and upload your resume to SERCBot you will need to create a profile to start your automated job search.
+            A: Yes, in order to use and upload your resume to SERC-Bot you will need to create a profile to start your automated job search.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
           <Accordion.Header>
-            Q: Will SERCBot work on my device? </Accordion.Header>
+            Q: Will SERC-Bot work on my device? </Accordion.Header>
           <Accordion.Body>
-            A: Currently SERCBot is running on Windows and andriod devices. We plan to be compatible with Mac in the near future.
+            A: Currently SERC-Bot is running on Windows and andriod devices. We plan to be compatible with Mac in the near future.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="3">
