@@ -14,3 +14,9 @@
     border-radius: .5rem;
     margin: .5rem;
 }
+a {
+    color: aliceblue;
+}
+h4, h1 {
+    font-family: "Oswald", sans-serif;
+}
