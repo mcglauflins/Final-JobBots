@@ -13,6 +13,7 @@ import Faqs from "./views/Faq.jsx";
 import About from "./views/About.jsx";
 import HowItWorks from "./views/Howitwork.jsx";
 import ForgotPassword from "./views/ForgotPassword.jsx";
+import Settings from "./views/Settings.jsx";
 
 //create your first component
 const Layout = () => {
@@ -31,6 +32,7 @@ const Layout = () => {
             <Route  path="/Howitworks" element={<><Navbar /><HowItWorks /></>}/>
             <Route path="/forgot-password" element={<ForgotPassword />}/>
             <Route exact path="/dashboard" element={<Dashboard />}/>
+            <Route path="/settings" element={<Settings/>}/>
             <Route path="/logged" element={<Navigate to="/dashboard"/>}/>
             <Route element={<h1>Not found!</h1>} />
           </Routes>
