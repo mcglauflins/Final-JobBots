@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate, useLocation } from 'react-router-dom';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,9 +10,13 @@ import useStore from "../store/zustand"
 
 export function LoginModal(props) {
   const store = useStore();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [resStatus, setResStatus] = useState(-1);
+
   const login = async(email, password) => {
     const resp = await fetch(
       `https://3001-mcglauflins-finaljobbot-10npefry8bl.ws-us44.gitpod.io/api/login`,
@@ -24,13 +28,21 @@ export function LoginModal(props) {
         body: JSON.stringify({ email: email, password: password }),
       }
     )
-      if(!resp.ok) throw Error("this is not working!")
-      if(resp.status===401){throw("invalid credentials")}
-      else if(resp.status===400){throw("invalid email or password")}
+      if(!resp.ok) {
+        setResStatus(resp.status)
+        throw Error("this is not working!")
+      }
+      else if(resp.status===401){
+        throw("invalid credentials")
+      }
+      else if(resp.status===400){
+        throw("invalid email or password")
+      }
       const data=await resp.json()
       localStorage.setItem("jwt-token",data.token)
       console.log(data)
       store.setLogin(true)
+      navigate('/dashboard')
       return data
   };
 
@@ -55,13 +67,14 @@ export function LoginModal(props) {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label>Password</Form.Label>
+                  <Form.Label>Password </Form.Label>
                   <Form.Control
                     type="password"
                     placeholder=""
                     enabled
                     onChange={(e) => setPassword(e.target.value)}
                   />
+                  <span className="text-danger">{resStatus == 401 ? "Wrong email or password." : null}</span>
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Check type="checkbox" label="Save Email" />
@@ -69,8 +82,13 @@ export function LoginModal(props) {
               </>
             </Col>
           </Row>
-        <Link onClick={() => login(email, password)} to={"/dashboard"}>Login</Link>
-        <Link to={"/forgot-password"} >Forgot Password</Link>
+          <Row>
+            <Button onClick={() => login(email, password)}>Login</Button>
+          </Row>
+          <Row>
+          
+            <Link to={"/forgot-password"} className="btn btn-primary">Forgot Password</Link>
+          </Row>
         </Container>
       </Modal.Body>
       <Modal.Footer>
