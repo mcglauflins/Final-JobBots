@@ -224,6 +224,7 @@ export const Dashboard = () => {
         </Formik>
       </Container>
     </div>) : (<div>
+
       <h1>UNAUTHORIZED 404</h1>
       <h4>Please <a href="#"onClick={()=>handleShowModal()}>login</a> to access dashboard.</h4>
 

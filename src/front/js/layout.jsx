@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop.jsx";
 
 import injectContext from "./store/appContext";
@@ -24,33 +24,16 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Switch>
-            <Route exact path="/">
-              <Navbar />
-              <Welcome />
-            </Route>
-            <Route  path="/About">
-            <Navbar />
-              <About />
-            </Route>
-            <Route  path="/Faqs">
-            <Navbar />
-              <Faqs />
-            </Route>
-            <Route  path="/Howitworks">
-            <Navbar />
-              <HowItWorks />
-            </Route>
-            <Route path="/forgot-password">
-              <ForgotPassword />
-            </Route>
-            <Route exact path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route>
-              <h1>Not found!</h1>
-            </Route>
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<><Navbar /><Welcome /></>} />
+            <Route  path="/About" element={<><Navbar /><About /></>}/>
+            <Route  path="/Faqs" element={<><Navbar /><Faqs /></>}/>
+            <Route  path="/Howitworks" element={<><Navbar /><HowItWorks /></>}/>
+            <Route path="/forgot-password" element={<ForgotPassword />}/>
+            <Route exact path="/dashboard" element={<Dashboard />}/>
+            <Route path="/logged" element={<Navigate to="/dashboard"/>}/>
+            <Route element={<h1>Not found!</h1>} />
+          </Routes>
 
        {  /* <Footer /> */}
           {/* <Footer /> */}
