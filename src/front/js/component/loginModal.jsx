@@ -104,7 +104,7 @@ export function LoginModal(props) {
       </Modal.Body>
       <Modal.Footer>
         <h2>Need an Account?</h2>
-        <Link onClick={props.onHide} to={"/"}>Click Here To Sign Up</Link>
+        <Link onClick={props.onHide} to={"/signup"}>Click Here To Sign Up</Link>
       </Modal.Footer>
     </Modal>
   );

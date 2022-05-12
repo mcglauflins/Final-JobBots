@@ -225,7 +225,7 @@ export const Dashboard = () => {
       </Container>
     </div>) : (<div>
 
-      <h1>UNAUTHORIZED 404</h1>
+      <h1>UNAUTHORIZED 401-</h1>
       <h4>Please <a href="#"onClick={()=>handleShowModal()}>login</a> to access dashboard.</h4>
 
       <LoginModal show={showModal} onHide={handleShowModal} />

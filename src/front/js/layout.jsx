@@ -13,7 +13,7 @@ import Faqs from "./views/Faq.jsx";
 import About from "./views/About.jsx";
 import HowItWorks from "./views/Howitwork.jsx";
 import ForgotPassword from "./views/ForgotPassword.jsx";
-
+import SignUp from "./views/signup.jsx";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -26,6 +26,7 @@ const Layout = () => {
         <ScrollToTop>
           <Routes>
             <Route exact path="/" element={<><Navbar /><Welcome /></>} />
+            <Route path="/signup" element={<><Navbar /><SignUp/></>} />
             <Route  path="/About" element={<><Navbar /><About /></>}/>
             <Route  path="/Faqs" element={<><Navbar /><Faqs /></>}/>
             <Route  path="/Howitworks" element={<><Navbar /><HowItWorks /></>}/>
