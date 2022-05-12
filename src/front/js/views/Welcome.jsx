@@ -5,9 +5,10 @@ import Col from "react-bootstrap/Col";
 import robotLogo from "../../img/updated.png";
 import "../../styles/welcome.css";
 import { useState, useRef } from "react";
-
+import {useNavigate} from "react-router-dom";
 
 export const Welcome = () => {
+  const navigate = useNavigate();
   const [style, setStyle] = useState({
     backgroundImage: `url(${robotLogo})`,
     backgroundRepeat: "repeat",
@@ -31,7 +32,7 @@ export const Welcome = () => {
         </Row>
         <Row className="rowButton">
           <Col md={{span:4, offset:4}}  xs={{span:10, offset:0}} lg={{span:10, offset:0}} className="buttonColumn d-flex flex-row justify-content-center">
-          <button className="btn1">Start Here!</button>
+          <button className="btn1" onClick={() => navigate("/Howitworks")}>Start Here!</button>
           </Col>
         </Row>
     </Container>

@@ -38,7 +38,7 @@ function HowItWorks() {
              to find their dream job faster then ever.
             <br></br>
             <br></br>
-            Job SERChing has never been easier!
+            Login or Sign up to start your job SERChing today!
           </Col>
         </Row>
       </Container>
