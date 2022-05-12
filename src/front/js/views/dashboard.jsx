@@ -36,7 +36,7 @@ export const Dashboard = () => {
 
   return (
     store.loggedIn ? (<div className="d-flex" style={{ height: "100vh" }}>
-      <Sidebar />
+      <Sidebar navKey="1"/>
       <Container>
         <Formik
           validationSchema={schema}

@@ -4,6 +4,9 @@ const useStore = create((set, get) => ({
   loggedIn: false,
   emailSent: false,
   codeVerified: false,
+  first_name: "Joe",
+  last_name: "Doe",
+  username: "JoeMama",
   currentUserID: -1,
   resetCode: -1,
   // addPeople: (person) => {

@@ -2,7 +2,7 @@ import React from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import useStore from "../store/zustand"
 
-const Sidebar = () => {
+const Sidebar = ({navKey}) => {
   const store = useStore()
 
   const logout = (store) => {
@@ -13,7 +13,7 @@ const Sidebar = () => {
   return (
     <>
       <div className="bg-light p-2 text-dark bg-opacity-75" style={{ height: "100%", width: "15%" }}>
-        <Nav variant="pills" defaultActiveKey="1" className="d-flex flex-column justify-content-between" style={{ height: "100%"}}>
+        <Nav variant="pills" defaultActiveKey={navKey} className="d-flex flex-column justify-content-between" style={{ height: "100%"}}>
           <div className="sidebar-top">
             <Container>
               <Navbar.Brand href="/">
@@ -23,7 +23,7 @@ const Sidebar = () => {
             <Nav.Link href="/dashboard" eventKey="1">Dashboard</Nav.Link>
             <Nav.Link  eventKey="2">Job Search</Nav.Link>
             <Nav.Link  eventKey="3">Resume Upload</Nav.Link>
-            <Nav.Link  eventKey="4">Settings</Nav.Link>
+            <Nav.Link href="/settings" eventKey="4"> Settings</Nav.Link>
           </div>
           <div className="sidebar-bottom">
             <Nav.Link href="/" onClick={() => logout(store)}>Sign Out</Nav.Link>

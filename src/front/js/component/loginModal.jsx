@@ -9,7 +9,7 @@ import Form from "react-bootstrap/Form";
 import useStore from "../store/zustand"
 import { useCookies } from "react-cookie"
 
-export function LoginModal(props) {
+export  function LoginModal(props) {
   const store = useStore();
   const navigate = useNavigate();
   const [cookies, setCookie] = useCookies(['name']);
