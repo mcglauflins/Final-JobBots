@@ -68,6 +68,22 @@ def dashboard():
     current_user = get_jwt_identity()
     return jsonify(logged_in_as=current_user), 200
 
+@api.route("/profile-info", methods=["POST"])
+@jwt_required()
+def getUserProfile():
+    request_body_credentials = request.get_json(force=True)
+    user = User.query.get(request_body_credentials["id"])
+    
+    current_user = get_jwt_identity()
+    return jsonify({
+        "first_name": user.first_name,
+        "last_name": user.last_name,
+        "email": user.email,
+        "username": user.username,
+        "password": "*******",
+    })
+
+
 @api.route("/change-profile", methods=["PUT"])
 def updateProfileInfo():
     request_body_credentials = request.get_json(force=True)

@@ -8,7 +8,8 @@ const useStore = create((set, get) => ({
   first_name: "Joe",
   last_name: "Doe",
   username: "JoeMama",
-  currentUserID: -1,
+  email: "joedoe@gmail.com",
+  password: "********",
   resetCode: -1,
   // addPeople: (person) => {
   //   set({
@@ -38,6 +39,26 @@ const useStore = create((set, get) => ({
   setCodeVerified: (isVerified) => {
     set({ 
       codeVerified: get().codeVerified = isVerified,
+    })
+  },
+  setFName: (fName) => {
+    set({ 
+      first_name: get().first_name = fName,
+    })
+  },
+  setLName: (LName) => {
+    set({ 
+      last_name: get().last_name = LName,
+    })
+  },
+  setEmail: (email) => {
+    set({ 
+      email: get().email = email,
+    })
+  },
+  setUsername: (username) => {
+    set({ 
+      username: get().username = username,
     })
   },
 }));

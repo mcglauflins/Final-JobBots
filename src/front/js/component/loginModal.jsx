@@ -51,7 +51,7 @@ export  function LoginModal(props) {
       }
       const data=await resp.json()
       localStorage.setItem("jwt-token",data.token)
-      console.log(data)
+      localStorage.setItem("user_id", data.user_id)
       store.setLogin(true)
       navigate('/dashboard')
       return data

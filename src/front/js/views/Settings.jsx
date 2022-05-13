@@ -12,13 +12,14 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import * as yup from "yup";
 
-
 const Settings = () => {
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
   };
   const store = useStore();
+
+  const userID = localStorage.getItem("user_id")
 
   const schema = yup.object().shape({
     firstName: yup.string().required(),
@@ -58,7 +59,12 @@ const Settings = () => {
             isValid,
             errors,
           }) => (
-            <Form noValidate onSubmit={handleSubmit} className="d-flex justify-content-center align-items-center" style={{ height: "100%"}}>
+            <Form
+              noValidate
+              onSubmit={handleSubmit}
+              className="d-flex justify-content-center align-items-center"
+              style={{ height: "100%" }}
+            >
               <Row className="mb-3">
                 <Col className="dashboard col-12">
                   <h2>User Information:</h2>
@@ -72,9 +78,10 @@ const Settings = () => {
                     <Form.Control
                       type="text"
                       name="firstName"
-                      defaultValue={store.first_name}
+                      placeholder={store.first_name}
                       onChange={handleChange}
                       isValid={touched.firstName && !errors.firstName}
+                      readOnly={"true"}
                     />
                     <Form.Control.Feedback tooltip>
                       Looks good!
@@ -90,15 +97,21 @@ const Settings = () => {
                     <Form.Control
                       type="text"
                       name="lastName"
-                      defaultValue={store.last_name}  
+                      placeholder={store.last_name}
                       onChange={handleChange}
                       isValid={touched.lastName && !errors.lastName}
+                      readOnly={"true"}
                     />
 
                     <Form.Control.Feedback tooltip>
                       Looks good!
                     </Form.Control.Feedback>
                   </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control placeholder={store.email} readOnly={"true"}/>
+                  </Form.Group>
+
                   <Form.Group
                     as={Col}
                     md="12"
@@ -111,12 +124,11 @@ const Settings = () => {
                       </InputGroup.Text>
                       <Form.Control
                         // set to false to edit, set to true to make it uneditable
-                        readOnly={false}
+                        readOnly={true}
                         type="text"
-                        placeholder="Username"
+                        placeholder={store.username}
                         aria-describedby="inputGroupPrepend"
                         name="username"
-                        defaultValue={store.username}
                         onChange={handleChange}
                         isInvalid={!!errors.username}
                       />
@@ -124,6 +136,10 @@ const Settings = () => {
                         {errors.username}
                       </Form.Control.Feedback>
                     </InputGroup>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control defaultValue={store.password} readOnly={"true"}/>
                   </Form.Group>
                 </Col>
               </Row>
