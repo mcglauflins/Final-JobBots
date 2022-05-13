@@ -45,6 +45,8 @@ body {
   font-weight: 300;
   align-items: center;
   border-radius: 15px;
+
+  transition: box-shadow .2s ease-in;
   
 }
 .btn1:hover {

@@ -28,6 +28,8 @@
   white-space: nowrap;
   background-color: transparent;
   border: 0;
+
+  transition: all .2s ease-in;
 }
 .dropdown-menu.show {
   display: block;
