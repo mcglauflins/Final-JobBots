@@ -21,7 +21,7 @@ const Sidebar = ({navKey}) => {
               </Navbar.Brand>
             </Container>
             <Nav.Link href="/dashboard" eventKey="1">Dashboard</Nav.Link>
-            <Nav.Link  eventKey="2">Job Search</Nav.Link>
+            <Nav.Link href="/jobs" eventKey="2">Jobs</Nav.Link>
             <Nav.Link href="/settings" eventKey="4"> Settings</Nav.Link>
           </div>
           <div className="sidebar-bottom">
