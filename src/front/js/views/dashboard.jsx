@@ -1,26 +1,74 @@
-import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import Sidebar from "../component/sideBar.jsx";
+import useStore from "../store/zustand";
+import { useState } from "react";
+import { LoginModal } from "../component/loginModal.jsx";
+import { Formik } from "formik";
+import { Button, Modal } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Sidebar from "../component/sideBar.jsx";
 import "../../styles/dashboard.css";
 import Form from "react-bootstrap/Form";
-import Feedback from "react-bootstrap/Feedback";
-import { Formik } from "formik";
-import * as yup from "yup";
 import InputGroup from "react-bootstrap/InputGroup";
-import useStore from "../store/zustand"
-import { LoginModal } from "../component/loginModal.jsx";
+import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+
 
 export const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
   };
+<<<<<<< HEAD
   // const { Formik } = formik;
   const store = useStore()
+=======
+  const [showDelete, setShowDelete] = useState(false);
+  const handleClose = () => setShowDelete(false);
+  const handleShow = () => setShowDelete(true);
+  
+  const [cookies, setCookie, removeCookie] = useCookies(['name']);
+  const navigate = useNavigate()
+
+  const store = useStore();
+
+  const token = localStorage.getItem('jwt-token');
+  const userID = localStorage.getItem("user_id");
+
+  const deleteAccount = () => {
+    fetch(
+      `${store.backendURL}/api/delete-account`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+        body: JSON.stringify({id: userID})
+      }
+    )
+      .then((response) => {
+        if(response.ok){
+          store.setLogin(false)
+          removeCookie("email", {path: "/"})
+          localStorage.removeItem("jwt-token")
+          localStorage.removeItem("user_id")
+          return response.json()
+        }else{
+          return 400
+        }
+      })
+      .then(result => {
+        if(result != 400){
+          navigate("/")
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+>>>>>>> b47519237de778dafb0ec743670afdf4dba85403
 
   const schema = yup.object().shape({
     firstName: yup.string().required(),
@@ -63,10 +111,10 @@ export const Dashboard = () => {
             <Form noValidate onSubmit={handleSubmit}>
               <Row className="mb-3 ">
                 <Col className="dashboard">
-                  <h2>User Information:</h2>
+                <h2>User Information:</h2>
                   <Form.Group
                     as={Col}
-                    md="4"
+                    md="12"
                     controlId="validationFormik101"
                     className="position-relative"
                   >
@@ -74,9 +122,10 @@ export const Dashboard = () => {
                     <Form.Control
                       type="text"
                       name="firstName"
-                      value={values.firstName}
-                      onChange={handleChange}
+                      value={store.first_name}
+                      onChange={(e) => store.setFName(e.target.value)}
                       isValid={touched.firstName && !errors.firstName}
+                      readOnly={true}
                     />
                     <Form.Control.Feedback tooltip>
                       Looks good!
@@ -84,7 +133,7 @@ export const Dashboard = () => {
                   </Form.Group>
                   <Form.Group
                     as={Col}
-                    md="4"
+                    md="12"
                     controlId="validationFormik102"
                     className="position-relative"
                   >
@@ -92,18 +141,29 @@ export const Dashboard = () => {
                     <Form.Control
                       type="text"
                       name="lastName"
-                      value={values.lastName}
-                      onChange={handleChange}
+                      value={store.last_name}
+                      onChange={(e) => store.setLName(e.target.value)}
                       isValid={touched.lastName && !errors.lastName}
+                      readOnly={true}
                     />
 
                     <Form.Control.Feedback tooltip>
                       Looks good!
                     </Form.Control.Feedback>
                   </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      value={store.email}
+                      onChange={(e) => store.setEmail(e.target.value)}
+                      readOnly={true}
+                      type="email"
+                    />
+                  </Form.Group>
+
                   <Form.Group
                     as={Col}
-                    md="4"
+                    md="12"
                     controlId="validationFormikUsername2"
                   >
                     <Form.Label>Username</Form.Label>
@@ -112,12 +172,13 @@ export const Dashboard = () => {
                         @
                       </InputGroup.Text>
                       <Form.Control
+                        // set to false to edit, set to true to make it uneditable
+                        readOnly={true}
                         type="text"
-                        placeholder="Username"
+                        value={store.username}
                         aria-describedby="inputGroupPrepend"
                         name="username"
-                        value={values.username}
-                        onChange={handleChange}
+                        onChange={(e) => store.setUsername(e.target.value)}
                         isInvalid={!!errors.username}
                       />
                       <Form.Control.Feedback type="invalid" tooltip>
@@ -125,6 +186,18 @@ export const Dashboard = () => {
                       </Form.Control.Feedback>
                     </InputGroup>
                   </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      value={store.password}
+                      onChange={(e) => store.setPassword(e.target.value)}
+                      readOnly={true}
+                      type="password"
+                    />
+                  </Form.Group>
+                  <Button variant="danger mt-3" onClick={handleShow}>
+                    Delete Account
+                  </Button>
                 </Col>
                 <Col className="dashboard">
                   <h2>Key Items:</h2>
@@ -218,6 +291,25 @@ export const Dashboard = () => {
                 </Form.Group>
                 <Button type="submit">Submit form</Button>
               </Row>
+              <Modal
+                show={showDelete}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title>Deletion Confirmation</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  Are you sure you want to delete your account?
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="danger" onClick={handleClose}>
+                    No
+                  </Button>
+                  <Button variant="success" onClick={()=>deleteAccount()}>Yes</Button>
+                </Modal.Footer>
+              </Modal>
             </Form>
           )}
         </Formik>
