@@ -12,8 +12,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from 'react-cookie';
-
+import { useCookies } from "react-cookie";
 
 const Settings = () => {
   const [showModal, setShowModal] = useState(false);
@@ -23,41 +22,38 @@ const Settings = () => {
   const [showDelete, setShowDelete] = useState(false);
   const handleClose = () => setShowDelete(false);
   const handleShow = () => setShowDelete(true);
-  
-  const [cookies, setCookie, removeCookie] = useCookies(['name']);
-  const navigate = useNavigate()
+
+  const [cookies, setCookie, removeCookie] = useCookies(["name"]);
+  const navigate = useNavigate();
 
   const store = useStore();
 
-  const token = localStorage.getItem('jwt-token');
+  const token = localStorage.getItem("jwt-token");
   const userID = localStorage.getItem("user_id");
 
   const deleteAccount = () => {
-    fetch(
-      `${store.backendURL}/api/delete-account`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-        body: JSON.stringify({id: userID})
-      }
-    )
+    fetch(`${store.backendURL}/api/delete-account`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify({ id: userID }),
+    })
       .then((response) => {
-        if(response.ok){
-          store.setLogin(false)
-          removeCookie("email", {path: "/"})
-          localStorage.removeItem("jwt-token")
-          localStorage.removeItem("user_id")
-          return response.json()
-        }else{
-          return 400
+        if (response.ok) {
+          store.setLogin(false);
+          removeCookie("email", { path: "/" });
+          localStorage.removeItem("jwt-token");
+          localStorage.removeItem("user_id");
+          return response.json();
+        } else {
+          return 400;
         }
       })
-      .then(result => {
-        if(result != 400){
-          navigate("/")
+      .then((result) => {
+        if (result != 400) {
+          navigate("/");
         }
       })
       .catch((err) => {
@@ -119,14 +115,17 @@ const Settings = () => {
                     className="position-relative"
                   >
                     <Form.Label>First name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="firstName"
-                      value={store.first_name}
-                      onChange={(e) => store.setFName(e.target.value)}
-                      isValid={touched.firstName && !errors.firstName}
-                      readOnly={true}
-                    />
+                    <div className="d-flex">
+                      <Form.Control
+                        type="text"
+                        name="firstName"
+                        value={store.first_name}
+                        onChange={(e) => store.setFName(e.target.value)}
+                        isValid={touched.firstName && !errors.firstName}
+                        readOnly={true}
+                      />
+                      <span className="btn btn-outline-primary">Edit</span>
+                    </div>
                     <Form.Control.Feedback tooltip>
                       Looks good!
                     </Form.Control.Feedback>
@@ -138,14 +137,17 @@ const Settings = () => {
                     className="position-relative"
                   >
                     <Form.Label>Last name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="lastName"
-                      value={store.last_name}
-                      onChange={(e) => store.setLName(e.target.value)}
-                      isValid={touched.lastName && !errors.lastName}
-                      readOnly={true}
-                    />
+                    <div className="d-flex">
+                      <Form.Control
+                        type="text"
+                        name="lastName"
+                        value={store.last_name}
+                        onChange={(e) => store.setLName(e.target.value)}
+                        isValid={touched.lastName && !errors.lastName}
+                        readOnly={true}
+                      />
+                      <span className="btn btn-outline-primary">Edit</span>
+                    </div>
 
                     <Form.Control.Feedback tooltip>
                       Looks good!
@@ -153,12 +155,15 @@ const Settings = () => {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control
-                      value={store.email}
-                      onChange={(e) => store.setEmail(e.target.value)}
-                      readOnly={true}
-                      type="email"
-                    />
+                    <div className="d-flex">
+                      <Form.Control
+                        value={store.email}
+                        onChange={(e) => store.setEmail(e.target.value)}
+                        readOnly={true}
+                        type="email"
+                      />
+                      <span className="btn btn-outline-primary">Edit</span>
+                    </div>
                   </Form.Group>
 
                   <Form.Group
@@ -181,6 +186,7 @@ const Settings = () => {
                         onChange={(e) => store.setUsername(e.target.value)}
                         isInvalid={!!errors.username}
                       />
+                      <span className="btn btn-outline-primary">Edit</span>
                       <Form.Control.Feedback type="invalid" tooltip>
                         {errors.username}
                       </Form.Control.Feedback>
@@ -188,12 +194,15 @@ const Settings = () => {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      value={store.password}
-                      onChange={(e) => store.setPassword(e.target.value)}
-                      readOnly={true}
-                      type="password"
-                    />
+                    <div className="d-flex">
+                      <Form.Control
+                        value={store.password}
+                        onChange={(e) => store.setPassword(e.target.value)}
+                        readOnly={true}
+                        type="password"
+                      />
+                      <span className="btn btn-outline-primary">Edit</span>
+                    </div>
                   </Form.Group>
                   <Button variant="danger mt-3" onClick={handleShow}>
                     Delete Account
@@ -216,7 +225,9 @@ const Settings = () => {
                   <Button variant="danger" onClick={handleClose}>
                     No
                   </Button>
-                  <Button variant="success" onClick={()=>deleteAccount()}>Yes</Button>
+                  <Button variant="success" onClick={() => deleteAccount()}>
+                    Yes
+                  </Button>
                 </Modal.Footer>
               </Modal>
             </Form>
