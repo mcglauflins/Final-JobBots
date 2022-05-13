@@ -35,7 +35,6 @@ const injectContext = (PassedComponent) => {
       else{
         const data = await resp.json();
         store.setLogin(true)
-        console.log("This is the data you requested", data);
         return data
       }
     };
@@ -57,7 +56,6 @@ const injectContext = (PassedComponent) => {
       fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result);
         store.setFName(result.first_name)
         store.setLName(result.last_name)
         store.setUsername(result.username)

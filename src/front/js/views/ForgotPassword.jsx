@@ -13,7 +13,6 @@ const ForgotPassword = () => {
 
   const verifyCode = (code) => {
     if (code == store.resetCode) {
-      console.log(true);
       store.setCodeVerified(true);
       return true;
     } else {
@@ -69,7 +68,6 @@ const ForgotPassword = () => {
       .then((result) => {
         store.setEmailSent(false);
         store.setCodeVerified(false);
-        // console.log(result + "\nCode from front-end: " + code);
       })
       .catch((err) => {
         console.error(err);

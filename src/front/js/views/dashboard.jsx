@@ -21,7 +21,6 @@ export const Dashboard = () => {
   };
   // const { Formik } = formik;
   const store = useStore()
-  console.log("Dashboard logging status: " + store.loggedIn);
 
   const schema = yup.object().shape({
     firstName: yup.string().required(),
