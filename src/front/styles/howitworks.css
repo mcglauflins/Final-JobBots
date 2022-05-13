@@ -13,5 +13,5 @@
 .text {
     color: #f5f6fa;
     font-family: "Oswald", sans-serif;
-    font-size: 30px;
+    font-size: 30px !important;
 }
