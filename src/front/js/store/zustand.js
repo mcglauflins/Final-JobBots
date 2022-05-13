@@ -9,7 +9,7 @@ const useStore = create((set, get) => ({
   last_name: "Doe",
   username: "JoeMama",
   email: "joedoe@gmail.com",
-  password: "********",
+  password: "nottherealpasswordlol",
   resetCode: -1,
   // addPeople: (person) => {
   //   set({
@@ -61,6 +61,11 @@ const useStore = create((set, get) => ({
       username: get().username = username,
     })
   },
+  setPassword: (password) => {
+    set({ 
+      password: get().password = password,
+    })
+  }
 }));
 
 export default useStore;

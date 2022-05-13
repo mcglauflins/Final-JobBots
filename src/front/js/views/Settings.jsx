@@ -78,10 +78,10 @@ const Settings = () => {
                     <Form.Control
                       type="text"
                       name="firstName"
-                      placeholder={store.first_name}
-                      onChange={handleChange}
+                      value={store.first_name}
+                      onChange={e => store.setFName(e.target.value)}
                       isValid={touched.firstName && !errors.firstName}
-                      readOnly={"true"}
+                      readOnly={true}
                     />
                     <Form.Control.Feedback tooltip>
                       Looks good!
@@ -97,10 +97,10 @@ const Settings = () => {
                     <Form.Control
                       type="text"
                       name="lastName"
-                      placeholder={store.last_name}
-                      onChange={handleChange}
+                      value={store.last_name}
+                      onChange={e => store.setLName(e.target.value)}
                       isValid={touched.lastName && !errors.lastName}
-                      readOnly={"true"}
+                      readOnly={true}
                     />
 
                     <Form.Control.Feedback tooltip>
@@ -109,7 +109,7 @@ const Settings = () => {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control placeholder={store.email} readOnly={"true"}/>
+                    <Form.Control value={store.email} onChange={e => store.setEmail(e.target.value)}readOnly={true} type="email" />
                   </Form.Group>
 
                   <Form.Group
@@ -126,10 +126,10 @@ const Settings = () => {
                         // set to false to edit, set to true to make it uneditable
                         readOnly={true}
                         type="text"
-                        placeholder={store.username}
+                        value={store.username}
                         aria-describedby="inputGroupPrepend"
                         name="username"
-                        onChange={handleChange}
+                        onChange={e => store.setUsername(e.target.value)}
                         isInvalid={!!errors.username}
                       />
                       <Form.Control.Feedback type="invalid" tooltip>
@@ -139,7 +139,7 @@ const Settings = () => {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control defaultValue={store.password} readOnly={"true"}/>
+                    <Form.Control value={store.password} onChange={e => store.setPassword(e.target.value)} readOnly={true} type="password"/>
                   </Form.Group>
                 </Col>
               </Row>
