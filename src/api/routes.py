@@ -96,37 +96,47 @@ def deleteAccount():
     return jsonify("User succesfully deleted!")
 
 @api.route("/change-profile", methods=["PUT"])
+@jwt_required()
 def updateProfileInfo():
     request_body_credentials = request.get_json(force=True)
-    emailExists = bool(User.query.filter_by(email=request_body_credentials["email"]).first())
+    user = User.query.get(request_body_credentials["id"])
 
-    if emailExists:
-        return jsonify("Email is already in use.")
-    else:
-        user = User.query.get(request_body_credentials["id"])
-
-        email = request_body_credentials["email"]
-        first_name = request_body_credentials["first_name"]
-        last_name = request_body_credentials["last_name"]
-        password = request_body_credentials["password"] + salt
-        hashedPassword = hashlib.sha224(password.encode('utf-8')).hexdigest()
+    email = request_body_credentials["email"]
+    username = request_body_credentials["username"]
+    first_name = request_body_credentials["first_name"]
+    last_name = request_body_credentials["last_name"]
 
 
-        if(email):
-            user.email = email
-            db.session.commit()
-        if(first_name and len(first_name) != 0):
-            user.first_name = first_name
-            db.session.commit()
-        if(last_name and len(last_name) != 0):
-            user.last_name = last_name
-            db.session.commit()
-        if(password and len(password) != 0):
-            user.password = hashedPassword
-            db.session.commit()
+    if(email):
+        user.email = email
+        db.session.commit()
+    if(first_name and len(first_name) != 0):
+        user.first_name = first_name
+        db.session.commit()
+    if(last_name and len(last_name) != 0):
+        user.last_name = last_name
+        db.session.commit()
+    if(username and len(username) != 0):
+        user.username = username
+        db.session.commit()
 
 
         return jsonify("Success!")
+
+@api.route("/change-password-jwt", methods=["PUT"])
+@jwt_required()
+def updatePasswordJWT():
+    request_body_credentials = request.get_json(force=True)
+    user = User.query.get(request_body_credentials["id"])
+
+    if user:
+        password = request_body_credentials["password"] + salt
+        hashedPassword = hashlib.sha224(password.encode('utf-8')).hexdigest()
+        user.password = hashedPassword
+        db.session.commit()
+        return jsonify({"passwordChanged": True})
+    else:
+        return jsonify("Something went wrong!")
 
 @api.route("/change-password", methods=["PUT"])
 def updatePassword():

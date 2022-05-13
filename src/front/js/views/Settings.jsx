@@ -31,6 +31,62 @@ const Settings = () => {
   const token = localStorage.getItem("jwt-token");
   const userID = localStorage.getItem("user_id");
 
+  const changePassword = () => {
+    fetch(`${store.backendURL}/api/change-password-jwt`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer ' + token 
+      },
+      body: JSON.stringify({
+        id: userID,
+        password: store.password,
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        if(result){
+          store.setEditPassword(true)
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  const changeProfile = () => {
+    fetch(`${store.backendURL}/api/change-profile`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer ' + token 
+      },
+      body: JSON.stringify({
+        id: userID,
+        username: store.username,
+        email: store.email,
+        first_name: store.first_name,
+        last_name: store.last_name
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        if(result){
+          store.setEditFName(true)
+          store.setEditLName(true)
+          store.setEditEmail(true)
+          store.setEditUsername(true)
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   const deleteAccount = () => {
     fetch(`${store.backendURL}/api/delete-account`, {
       method: "DELETE",
@@ -122,9 +178,10 @@ const Settings = () => {
                         value={store.first_name}
                         onChange={(e) => store.setFName(e.target.value)}
                         isValid={touched.firstName && !errors.firstName}
-                        readOnly={true}
+                        readOnly={store.editFName}
                       />
-                      <span className="btn btn-outline-primary">Edit</span>
+                      {store.editFName ? <span className="btn btn-outline-primary" onClick={()=>store.setEditFName(false)}>Edit</span> : <span className="btn btn-outline-primary" onClick={()=>changeProfile()}>Save</span>}
+
                     </div>
                     <Form.Control.Feedback tooltip>
                       Looks good!
@@ -144,9 +201,10 @@ const Settings = () => {
                         value={store.last_name}
                         onChange={(e) => store.setLName(e.target.value)}
                         isValid={touched.lastName && !errors.lastName}
-                        readOnly={true}
+                        readOnly={store.editLName}
                       />
-                      <span className="btn btn-outline-primary">Edit</span>
+                      {store.editLName ? <span className="btn btn-outline-primary" onClick={()=>store.setEditLName(false)}>Edit</span> : <span className="btn btn-outline-primary" onClick={()=>changeProfile()}>Save</span>}
+
                     </div>
 
                     <Form.Control.Feedback tooltip>
@@ -159,10 +217,11 @@ const Settings = () => {
                       <Form.Control
                         value={store.email}
                         onChange={(e) => store.setEmail(e.target.value)}
-                        readOnly={true}
                         type="email"
+                        readOnly={store.editEmail}
                       />
-                      <span className="btn btn-outline-primary">Edit</span>
+                      {store.editEmail ? <span className="btn btn-outline-primary" onClick={()=>store.setEditEmail(false)}>Edit</span> : <span className="btn btn-outline-primary" onClick={()=>changeProfile()}>Save</span>}
+
                     </div>
                   </Form.Group>
 
@@ -178,15 +237,15 @@ const Settings = () => {
                       </InputGroup.Text>
                       <Form.Control
                         // set to false to edit, set to true to make it uneditable
-                        readOnly={true}
                         type="text"
                         value={store.username}
                         aria-describedby="inputGroupPrepend"
                         name="username"
                         onChange={(e) => store.setUsername(e.target.value)}
                         isInvalid={!!errors.username}
+                        readOnly={store.editUsername}
                       />
-                      <span className="btn btn-outline-primary">Edit</span>
+                      {store.editUsername ? <span className="btn btn-outline-primary" onClick={()=>store.setEditUsername(false)}>Edit</span> : <span className="btn btn-outline-primary" onClick={()=>changeProfile()}>Save</span>}
                       <Form.Control.Feedback type="invalid" tooltip>
                         {errors.username}
                       </Form.Control.Feedback>
@@ -196,12 +255,12 @@ const Settings = () => {
                     <Form.Label>Password</Form.Label>
                     <div className="d-flex">
                       <Form.Control
-                        value={store.password}
+                        value={store.password == "" ? "*******" : store.password}
                         onChange={(e) => store.setPassword(e.target.value)}
-                        readOnly={true}
                         type="password"
+                        readOnly={store.editPassword}
                       />
-                      <span className="btn btn-outline-primary">Edit</span>
+                      {store.editPassword ? <span className="btn btn-outline-primary" onClick={()=>store.setEditPassword(false)}>Edit</span> : <span className="btn btn-outline-primary" onClick={()=>changePassword()}>Save</span>}
                     </div>
                   </Form.Group>
                   <Button variant="danger mt-3" onClick={handleShow}>

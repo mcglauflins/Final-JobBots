@@ -5,11 +5,16 @@ const useStore = create((set, get) => ({
   backendURL: process.env.BACKEND_URL,
   emailSent: false,
   codeVerified: false,
-  first_name: "Joe",
-  last_name: "Doe",
-  username: "JoeMama",
-  email: "joedoe@gmail.com",
-  password: "nottherealpasswordlol",
+  first_name: "",
+  last_name: "",
+  username: "",
+  email: "",
+  password: "",
+  editUsername: true,
+  editFName: true,
+  editLName: true,
+  editEmail: true,
+  editPassword: true,
   resetCode: -1,
   // addPeople: (person) => {
   //   set({
@@ -65,7 +70,32 @@ const useStore = create((set, get) => ({
     set({ 
       password: get().password = password,
     })
-  }
+  },
+  setEditPassword: (edit) => {
+    set({ 
+      editPassword: get().editPassword = edit,
+    })
+  },
+  setEditUsername: (edit) => {
+    set({ 
+      editUsername: get().editUsername = edit,
+    })
+  },
+  setEditFName: (edit) => {
+    set({ 
+      editFName: get().editFName = edit,
+    })
+  },
+  setEditLName: (edit) => {
+    set({ 
+      editLName: get().editLName = edit,
+    })
+  },
+  setEditEmail: (edit) => {
+    set({ 
+      editEmail: get().editEmail = edit,
+    })
+  },
 }));
 
 export default useStore;

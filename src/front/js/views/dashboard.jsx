@@ -210,15 +210,6 @@ export const Dashboard = () => {
                       </Form.Control.Feedback>
                     </InputGroup>
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      value={store.password}
-                      onChange={(e) => store.setPassword(e.target.value)}
-                      readOnly={true}
-                      type="password"
-                    />
-                  </Form.Group>
                 </Col>
                 <Col className="dashboard">
                   <h2>Key Items:</h2>
