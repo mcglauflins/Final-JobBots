@@ -2,6 +2,7 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useStore from "../store/zustand";
+import "../../styles/forgotpassword.css";
 
 const ForgotPassword = () => {
   const [showEmailAlert, setShowEmailAlert] = useState(false)
@@ -77,23 +78,23 @@ const ForgotPassword = () => {
   };
 
   return (
-    <>
+    <div className="d-flex align-items-center justify-content-center" style={{height:"100vh"}}>
       {!store.emailSent ? (
-        <Form>
+        <Form className="forgot d-flex flex-column">
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
+            <Form.Label>Enter Email For New Password!</Form.Label>
+            <Form.Control className="fs-4"
               type="email"
               placeholder="Enter email"
               name="user_email"
               onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>
-          {showEmailAlert ? <Alert  variant={"danger"} className="col-2">
+          {showEmailAlert ? <Alert variant={"danger"} className="col-12 alert align-self-center">
             Email doesn't exist!
           </Alert> : ""}
           <Link
-            className="btn btn-primary"
+            className="btn btn-primary forgottt"
             onClick={() => sendEmail(email)}
             to={"/forgot-password"}
           >
@@ -114,7 +115,7 @@ const ForgotPassword = () => {
             Wrong code!
           </Alert> : ""}
           </Form.Group>
-          <div className="btn btn-primary" onClick={() => verifyCode(code)}>
+          <div className="btn btn-primary " onClick={() => verifyCode(code)}>
             Submit
           </div>
         </Form>
@@ -139,7 +140,7 @@ const ForgotPassword = () => {
           </Link>
         </Form>
       )}
-    </>
+    </div>
   );
 };
 
