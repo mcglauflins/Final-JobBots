@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import useStore from "../store/zustand"
 import { useCookies } from "react-cookie"
+import "../../styles/login.css";
 
 export  function LoginModal(props) {
   const store = useStore();
@@ -60,8 +61,8 @@ export  function LoginModal(props) {
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Let's Get To Job-Hunting!
+        <Modal.Title className="loginTitle" id="contained-modal-title-vcenter">
+          Let's Get To Job-SERChing!
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
@@ -70,7 +71,7 @@ export  function LoginModal(props) {
             <Col xs={12} md={8}>
               <>
                 <Form.Group className="mb-3">
-                  <Form.Label>Email</Form.Label>
+                  <Form.Label className="words">Email</Form.Label>
                   <Form.Control
                     defaultValue={cookies.email ? cookies.email : null}
                     enabled
@@ -78,7 +79,7 @@ export  function LoginModal(props) {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label>Password </Form.Label>
+                  <Form.Label className="words">Password </Form.Label>
                   <Form.Control
                     type="password"
                     placeholder=""
@@ -88,23 +89,24 @@ export  function LoginModal(props) {
                   <span className="text-danger">{resStatus == 401 ? "Wrong email or password." : null}</span>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Check type="checkbox" label="Save Email" onClick={(e) => isChecked(e)}/>
+                  <Form.Check className="words" type="checkbox" label="Save Email" onClick={(e) => isChecked(e)}/>
                 </Form.Group>
               </>
             </Col>
           </Row>
           <Row>
-            <Button onClick={() => login(email, password)}>Login</Button>
+            <Button className="login" onClick={() => login(email, password)}>Login</Button>
           </Row>
           <Row>
           
-            <Link to={"/forgot-password"} className="btn btn-primary">Forgot Password</Link>
+            <Link to={"/forgot-password"} className="btn btn-primary login">Forgot Password</Link>
           </Row>
         </Container>
       </Modal.Body>
-      <Modal.Footer>
-        <h2>Need an Account?</h2>
-        <Link onClick={props.onHide} to={"/signup"}>Click Here To Sign Up</Link>
+      <Modal.Footer className="justify-content-center">
+        <h1>Need an Account?</h1>
+        
+        <Link className="signupp" onClick={props.onHide} to={"/signup"}>Click Here To Sign Up</Link>
       </Modal.Footer>
     </Modal>
   );

@@ -109,7 +109,7 @@ const SignUp = () => {
               />
             </div>
             <div className="text-center">
-              <Button color="primary" onClick={()=>signUp()}>SignUp Now!</Button>
+              <Button className="sign" onClick={()=>signUp()}>SignUp Now!</Button>
             </div>
           </form>
         </Col>

@@ -1,7 +1,7 @@
 .header {
   text-align: center;
   color: #f5f6fa;
-  text-shadow: 2px 2px #1f3ab3;
+  text-shadow: 2px 2px #a3aee0;
   font-family: "Oswald", sans-serif;
   font-size: 56px;
 }
@@ -27,8 +27,8 @@ body {
 }
 
 .card1 {
-  border-top-left-radius: 20% !important;
-  border-top-right-radius: 50% !important;
+  border-top-left-radius: 60% !important;
+  border-top-right-radius: 60% !important;
   background-color: rgba(255, 255, 255, 0.932);
 }
 .images {
@@ -36,6 +36,9 @@ body {
   border-top-right-radius: 10% !important;
   border-top-left-radius: 10% !important;
   height: 350px;
+  border-style: solid;
+  border-color: #93dfece3;
+  border-width: .4rem;
 }
 /* .card-img-top {
   border-radius: 25%;

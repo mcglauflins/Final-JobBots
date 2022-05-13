@@ -1,0 +1,32 @@
+.loginTitle {
+  color: #084080;
+  font-size: 2rem;
+  font-family: "Oswald", sans-serif;
+}
+.words {
+  color: #084080;
+  font-size: 1.6rem;
+  font-family: "Oswald", sans-serif;
+}
+.login {
+    color: #084080 !important;
+    font-size: 3rem;
+    font-family: "Oswald", sans-serif;
+}
+.login:hover {
+    color: #fff !important;
+    background-color: #084080;
+}
+h1{
+    color: #084080;
+  font-size: 2rem;
+  font-family: "Oswald", sans-serif;
+  padding: 1rem;
+}
+.signupp {
+    font-size: 1.6rem;
+    background-color: #084080;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 5rem;
+}
