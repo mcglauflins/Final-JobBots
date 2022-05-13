@@ -21,7 +21,7 @@ const ForgotPassword = () => {
 
   const sendEmail = (email) => {
     fetch(
-      `https://3001-mcglauflins-finaljobbot-10npefry8bl.ws-us44.gitpod.io/api/forgot-password`,
+      `${store.backendURL}/api/forgot-password`,
       {
         method: "POST",
         headers: {
@@ -44,7 +44,7 @@ const ForgotPassword = () => {
 
   const changePassword = (newPassword, email, code) => {
     fetch(
-      `https://3001-mcglauflins-finaljobbot-10npefry8bl.ws-us44.gitpod.io/api/change-password`,
+      `${store.backendURL}/api/change-password`,
       {
         method: "PUT",
         headers: {

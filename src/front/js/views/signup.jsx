@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "../../styles/signup.css";
+import useStore from "../store/zustand"
 
 const SignUp = () => {
   const [fName, setFName] = useState("");
@@ -15,10 +16,12 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const store = useStore()
+
 
   const signUp = () => {
     fetch(
-      "https://3001-mcglauflins-finaljobbot-10npefry8bl.ws-us44.gitpod.io/api/signup",
+      `${store.backendURL}/api/signup`,
       {
         method: "POST",
         headers: {

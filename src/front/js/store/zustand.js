@@ -2,6 +2,7 @@ import create from "zustand";
 
 const useStore = create((set, get) => ({
   loggedIn: false,
+  backendURL: process.env.BACKEND_URL,
   emailSent: false,
   codeVerified: false,
   first_name: "Joe",
