@@ -34,7 +34,7 @@ const Settings = () => {
 
   const deleteAccount = () => {
     fetch(
-      "https://3001-mcglauflins-finaljobbot-t8s8hgpot1l.ws-us45.gitpod.io/api/delete-account",
+      `${store.backendURL}/api/delete-account`,
       {
         method: "DELETE",
         headers: {
