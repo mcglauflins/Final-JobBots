@@ -83,6 +83,17 @@ def getUserProfile():
         "password": "*******",
     })
 
+@api.route("/delete-account", methods=["DELETE"])
+@jwt_required()
+def deleteAccount():
+    request_body_credentials = request.get_json(force=True)
+    user = User.query.get(request_body_credentials["id"])
+    current_user = get_jwt_identity()
+
+    db.session.delete(user)
+    db.session.commit()
+
+    return jsonify("User succesfully deleted!")
 
 @api.route("/change-profile", methods=["PUT"])
 def updateProfileInfo():
