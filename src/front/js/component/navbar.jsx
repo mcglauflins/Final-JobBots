@@ -23,7 +23,7 @@ export const Navbar = () => {
           </Link>
           <div className="ml-auto">
             <div className="icons-right">
-              <div className="hamburger">
+              <div className="hamburger dropdown">
                 {/* <Link to="/demo"> */}
                 <button
                   className="btn btn-primary"
@@ -45,10 +45,9 @@ export const Navbar = () => {
                   </li>
                   <li>
                     <Link to="/Howitworks" className="dropdown-item">
-
                       How it works
                     </Link>
-                  </li>      
+                  </li>
                   <li>
                     <Link to="/faqs" className="dropdown-item" href="#">
                       FAQ
@@ -57,7 +56,7 @@ export const Navbar = () => {
                 </ul>
                 {/* </Link> */}
               </div>
-              <div className="profile">
+              <div className="profile dropdown">
                 {/* <Link to="/demo"> */}
                 <button
                   className="btn btn-primary"
@@ -72,22 +71,28 @@ export const Navbar = () => {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton1"
                 >
-                  {!store.loggedIn ? (<><li onClick={handleShowModal}>
-                    <a className="dropdown-item" href="#">
-                      Login / Sign Up
-                    </a>
-                  </li>
-                  <li>
-                    <Link to="/dashboard" className="dropdown-item">
-                      Dashboard
-                    </Link>
-                  </li></>) : <>
-                  <li>
-                    <Link to="/dashboard" className="dropdown-item">
-                      Dashboard
-                    </Link>
-                  </li>
-                  </>}
+                  {!store.loggedIn ? (
+                    <>
+                      <li onClick={handleShowModal}>
+                        <a className="dropdown-item" href="#">
+                          Login / Sign Up
+                        </a>
+                      </li>
+                      <li>
+                        <Link to="/dashboard" className="dropdown-item">
+                          Dashboard
+                        </Link>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        <Link to="/dashboard" className="dropdown-item">
+                          Dashboard
+                        </Link>
+                      </li>
+                    </>
+                  )}
                 </ul>
                 {/* </Link> */}
               </div>
