@@ -164,7 +164,7 @@ def sendResetEmail():
             "reset_code": reset_code
         })
     else:
-        return jsonify("No account with such email.")
+        return jsonify("No account with such email."),401
 
 @api.route("/accounts", methods=["GET"])
 def getAccounts():
