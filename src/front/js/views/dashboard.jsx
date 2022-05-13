@@ -132,7 +132,7 @@ export const Dashboard = () => {
             isValid,
             errors,
           }) => (
-            <Form noValidate onSubmit={handleSubmit}>
+            <Form  noValidate onSubmit={handleSubmit}>
               <Row className="mb-3 ">
                 <Col className="dashboard">
                 <h2>User Information:</h2>
@@ -142,7 +142,7 @@ export const Dashboard = () => {
                     controlId="validationFormik101"
                     className="position-relative"
                   >
-                    <Form.Label>First name</Form.Label>
+                    <Form.Label className="text">First name</Form.Label>
                     <Form.Control
                       type="text"
                       name="firstName"
@@ -161,7 +161,7 @@ export const Dashboard = () => {
                     controlId="validationFormik102"
                     className="position-relative"
                   >
-                    <Form.Label>Last name</Form.Label>
+                    <Form.Label className="text">Last name</Form.Label>
                     <Form.Control
                       type="text"
                       name="lastName"
@@ -176,7 +176,7 @@ export const Dashboard = () => {
                     </Form.Control.Feedback>
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label className="text">Email</Form.Label>
                     <Form.Control
                       value={store.email}
                       onChange={(e) => store.setEmail(e.target.value)}
@@ -190,7 +190,7 @@ export const Dashboard = () => {
                     md="12"
                     controlId="validationFormikUsername2"
                   >
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label className="text">Username</Form.Label>
                     <InputGroup hasValidation>
                       <InputGroup.Text id="inputGroupPrepend">
                         @
@@ -211,7 +211,7 @@ export const Dashboard = () => {
                     </InputGroup>
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className="text">Password</Form.Label>
                     <Form.Control
                       value={store.password}
                       onChange={(e) => store.setPassword(e.target.value)}
@@ -224,14 +224,14 @@ export const Dashboard = () => {
                   <h2>Key Items:</h2>
                   <Form.Group
                     as={Col}
-                    md="6"
+                    md="12"
                     controlId="validationFormik103"
                     className="position-relative"
                   >
-                    <Form.Label>City</Form.Label>
+                    <Form.Label className="text">Job Title</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="City"
+                      placeholder="Example: Veternarian"
                       name="city"
                       value={values.city}
                       onChange={handleChange}
@@ -244,14 +244,14 @@ export const Dashboard = () => {
                   </Form.Group>
                   <Form.Group
                     as={Col}
-                    md="3"
+                    md="12"
                     controlId="validationFormik104"
                     className="position-relative"
                   >
-                    <Form.Label>State</Form.Label>
+                    <Form.Label className="text">Location</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="State"
+                      placeholder="Example: San Diego"
                       name="state"
                       value={values.state}
                       onChange={handleChange}
@@ -263,14 +263,14 @@ export const Dashboard = () => {
                   </Form.Group>
                   <Form.Group
                     as={Col}
-                    md="3"
+                    md="12"
                     controlId="validationFormik105"
                     className="position-relative"
                   >
-                    <Form.Label>Zip</Form.Label>
+                    <Form.Label className="col-12 text">Number of Jobs to Apply to ≦100</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Zip"
+                      placeholder="Example: 50"
                       name="zip"
                       value={values.zip}
                       onChange={handleChange}
@@ -283,34 +283,24 @@ export const Dashboard = () => {
                   </Form.Group>
                 </Col>
               </Row>
-              <Row className="hi2">
+              <Row className="linkedin">
                 <Form.Group className="position-relative mb-3">
-                  <Form.Label>PDF File</Form.Label>
+                  <Form.Label className="titl">LinkedIn Account Information:</Form.Label>
+                  <p>Username</p>
                   <Form.Control
-                    type="file"
-                    required
-                    name="file"
-                    onChange={handleChange}
-                    isInvalid={!!errors.file}
-                  />
+                      type="text"
+                      placeholder="Username"
+                    />
+                     <p>Password</p>
+                    <Form.Control
+                      type="password"
+                      placeholder="Password"
+                    />
                   <Form.Control.Feedback type="invalid" tooltip>
                     {errors.file}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="position-relative mb-3">
-                  <Form.Check
-                    required
-                    name="terms"
-                    label="Agree to terms and conditions"
-                    onChange={handleChange}
-                    isInvalid={!!errors.terms}
-                    feedback={errors.terms}
-                    feedbackType="invalid"
-                    id="validationFormik106"
-                    feedbackTooltip
-                  />
-                </Form.Group>
-                <Button type="submit">Submit form</Button>
+                <Button className="save">Save Information</Button>
               </Row>
               <Modal
                 show={showDelete}
