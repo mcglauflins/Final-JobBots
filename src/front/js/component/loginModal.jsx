@@ -28,6 +28,33 @@ export  function LoginModal(props) {
     }
   }
 
+  const getUserInfo = (store, url=`${state.backendURL}/api/profile-info`) => {
+    const token = localStorage.getItem('jwt-token');
+    const userID = localStorage.getItem('user_id');
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer ' + token // ⬅⬅⬅ authorization token
+      },
+      body: JSON.stringify({
+        "id": userID,
+      })
+   }
+
+    fetch(url, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      store.setFName(result.first_name)
+      store.setLName(result.last_name)
+      store.setUsername(result.username)
+      store.setEmail(result.email)
+    })
+    .catch(err => {
+      console.error(err);
+    });
+  }
+
 
   const login = async(email, password) => {
     const resp = await fetch(

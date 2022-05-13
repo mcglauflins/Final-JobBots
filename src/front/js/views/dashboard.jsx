@@ -1,6 +1,6 @@
 import Sidebar from "../component/sideBar.jsx";
 import useStore from "../store/zustand";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LoginModal } from "../component/loginModal.jsx";
 import { Formik } from "formik";
 import { Button, Modal } from "react-bootstrap";
@@ -16,14 +16,39 @@ import { useCookies } from 'react-cookie';
 
 
 export const Dashboard = () => {
+
+  useEffect(()=>{
+    const url=`${store.backendURL}/api/profile-info`
+    const token = localStorage.getItem('jwt-token');
+    const userID = localStorage.getItem('user_id');
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer ' + token // ⬅⬅⬅ authorization token
+      },
+      body: JSON.stringify({
+        "id": userID,
+      })
+   }
+
+    fetch(url, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      store.setFName(result.first_name)
+      store.setLName(result.last_name)
+      store.setUsername(result.username)
+      store.setEmail(result.email)
+    })
+    .catch(err => {
+      console.error(err);
+    });
+  },[])
+
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => {
     setShowModal(!showModal);
   };
-<<<<<<< HEAD
-  // const { Formik } = formik;
-  const store = useStore()
-=======
   const [showDelete, setShowDelete] = useState(false);
   const handleClose = () => setShowDelete(false);
   const handleShow = () => setShowDelete(true);
@@ -68,7 +93,6 @@ export const Dashboard = () => {
         console.error(err);
       });
   };
->>>>>>> b47519237de778dafb0ec743670afdf4dba85403
 
   const schema = yup.object().shape({
     firstName: yup.string().required(),
@@ -195,9 +219,6 @@ export const Dashboard = () => {
                       type="password"
                     />
                   </Form.Group>
-                  <Button variant="danger mt-3" onClick={handleShow}>
-                    Delete Account
-                  </Button>
                 </Col>
                 <Col className="dashboard">
                   <h2>Key Items:</h2>
