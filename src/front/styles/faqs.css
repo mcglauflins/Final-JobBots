@@ -2,3 +2,24 @@
   width: 60em;
   margin: auto;
 }
+.faqs {
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: .5rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  padding: 2rem 2rem 7rem 2rem; 
+}
+.header {
+  color: #084080 !important;
+  text-shadow: 2px 2px #a3aee0 !important;
+} 
+.accordion-button {
+  color: #084080;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+}
+.accordion-body{
+  color: #084080;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.3rem;
+}
